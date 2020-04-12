@@ -1,0 +1,177 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.header {
+  background-color: #f0f5ff;
+}
+
+.homepage-cover-grid{
+  object-fit: cover;
+  background-color: rgb(255, 255, 255);
+  min-height: 100vh;
+}
+.homepageSignup{
+  min-height: 100vh;
+  background-repeat:no-repeat;
+  background-size:auto;
+  background-position:center;
+}
+
+.homepageSubscription{
+  min-height: 120vh;
+  background-repeat:no-repeat;
+  background-size:auto;
+  background-position:center;
+}
+
+.textSignup{
+  font-size: 16pt;
+  text-align: center;
+  color: white;
+}
+.textCover{
+  font-size: 16pt;
+  text-align: center !important;
+  color: black;
+  margin: auto;
+}
+
+.textCover img{
+  width: 400px;
+}
+
+.textCover p{
+  width: 80% !important;
+  margin: auto;
+}
+
+.checkoutButton{
+  background:#e80644 !important;
+  width:125px;
+  border-radius:25px !important;
+  font-weight:700;
+  margin: 5px;
+  height:37px !important;
+}
+
+.checkoutButton span{
+  background:#e80644 !important;
+  display: none !important;
+}
+
+.checkoutButton:after{
+  content: "Select";
+  font-weight:700 !important;
+  color: #f0f5ff;
+  font-size: 0.875rem !important;
+}
+.textLogin{
+  font-size: 16pt;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+.textLoginP{
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.textPlan{
+  font-size: 22pt;
+  text-align: center;
+  color: black;
+}
+
+.textSubscription{
+  font-size: 14pt;
+  text-align: center;
+  color: #04104e;
+}
+.footer{
+  height: 450x;
+  background-repeat:no-repeat;
+  background-size:auto;
+  background-position:center;
+}
+.planList{
+  font-size: 14pt;
+  text-align: center;
+  margin-top: 15%;
+  color: #04104e;
+}
+
+.planList h2{
+  margin-bottom: -25px;
+  margin-left: 18px;
+}
+
+.iconButton{
+  color: gray;
+}
+
+ul.checkmark li{
+  font-size: 13px;  /*this determines the size of the list text and therefore checkmark size*/
+  list-style-type: none; /*remove default list style*/
+  margin-bottom: 1em; /*lists need to be able to breathe*/ 
+  padding: 0.05em 0 0 1.5em; /*make room for the circle*/ 
+  position: relative; /*because we want to position the circle in an absolute fashion*/ 
+}
+	
+ul.checkmark li:before {
+  content: " "; /*the circle itself is empty*/ 
+  display: block;
+  border: solid 0.8em #e80644; /*create a colored area...*/ 
+  border-radius: .8em; /* ... and turn it into a circle*/
+  height: 0;
+  width: 0;
+  position: absolute; /*the circle is then put into place*/ 
+  left: 0.5em;
+  top: 40%; 
+  margin-top: -0.5em;
+}
+	
+ul.checkmark li:after {
+  content: " ";
+  display: block;
+  width: 0.3em; /*the short bar of the mark is half as long as the long bar*/ 
+  height: 0.6em;
+  border: solid white;
+  border-width: 0 0.2em 0.2em 0; /*creates the inverted "L" shape*/ 
+  position: absolute;
+  left: 1em;
+  top: 40%;
+  margin-top: -0.2em;
+  -webkit-transform: rotate(45deg); /*tilts the shape*/ 
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.headerLinks{
+  color: gray;
+  margin-right: 3% !important;
+}
+
+.headerLinks a{
+  color: gray;
+  text-decoration: none;
+}
+
+.simpleCards{
+  opacity: 0.5;
+  width: 350px;
+  height: 450px;
+}
+
+.coverImage{
+  height:'70vh';
+  width:'65vw';
+  float:"right"
+}
