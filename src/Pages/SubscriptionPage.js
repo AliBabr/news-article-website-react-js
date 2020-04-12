@@ -37,15 +37,17 @@ const useStyles = makeStyles((theme) => ({
     },
     textFieldsSmall:
     {
-      width:'100%',
+      width:'95%',
       height:'30px',
+      paddingLeft:'15px',
       border:'unset',
       borderRadius:'5px',
       backgroundColor:"#e7e7e7",
     },
     textAreasSmall:
     {
-      width:'100%',
+      width:'95%',
+      paddingLeft:'15px',
       height:'80px',
       border:'unset',
       borderRadius:'5px',
