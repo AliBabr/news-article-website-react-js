@@ -93,7 +93,7 @@ export default function Header() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <Link to="/login">
+      <Link style={{textDecoration:"none"}} to="/login">
       <MenuItem>
       <Typography className="headerLinks">Login</Typography>
       </MenuItem>
@@ -101,7 +101,7 @@ export default function Header() {
       <MenuItem>
       <Typography className="headerLinks"><a href="/#section1">How It Works</a></Typography>
       </MenuItem>
-      <Link to="/subscription">
+      <Link style={{textDecoration:"none"}} to="/subscription">
       <MenuItem >
       <Typography className="headerLinks">Plans</Typography>
       </MenuItem>
