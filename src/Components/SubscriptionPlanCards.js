@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
       },
     innerPaper: {
         width:"100%",
-        height:130,
+        height:145,
         textAlign: 'center',
         borderStartEndRadius:'0px',
         borderStartStartRadius:'0px',
