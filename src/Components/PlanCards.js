@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
       },
       innerPaperSmall: {
           width:"100%",
-          height:145,
+          height:150,
           textAlign: 'center',
           borderStartEndRadius:'0px',
           borderStartStartRadius:'0px',
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
         },
     buttons:{
         backgroundColor:"#e80644",
-        width:'125px',
+        width:'105px',
         borderRadius:"25px",
         fontWeight:'700',
         height:'37px',
