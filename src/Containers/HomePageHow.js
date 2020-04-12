@@ -31,7 +31,18 @@ const useStyles = makeStyles((theme) => ({
     paperSubHeader:{
         color:"white",
         fontSize:'11pt',
-    }
+    },
+    buttons:{
+        backgroundColor:"#e80644",
+        fontWeight:'700',
+        height:'37px',
+        marginBottom:'15px',
+        width:'100%',
+        color:'white',
+        borderRadius:'5px',
+        marginLeft:'5%',
+        border:'unset'
+      },
   }));
 
 export default function HomePageSignup() {
@@ -61,6 +72,13 @@ export default function HomePageSignup() {
                 <Grid item lg={4} md={4} sm={10} xs={10} >
                     <Cards class={classes} image={MoniterImage} heading={Headings[2]} subheading={SubHeadings[0]}/>
                 </Grid>
+            </Grid>
+            <Grid container justify="center">
+                <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
+                <Grid item sm={6} md={6} lg={6} xl={6} >
+                    <h1 className="buttonStarted" ><a href="/subscription"><input className={classes.buttons} value="Get Started Today!" type="button"></input></a></h1>
+                 </Grid>
+                <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
             </Grid>
         </div>
         </section>

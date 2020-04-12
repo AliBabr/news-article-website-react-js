@@ -19,6 +19,12 @@ const useStyles = makeStyles((theme) => ({
         width:'100vw',
         float:"right",
     },
+    coverImage:{
+        marginLeft:'-50px',width:"400px"
+    },
+    coverImageSmall:{
+        marginLeft:'-15px',width:"400px"
+    }
   }));
 
 
@@ -32,9 +38,9 @@ export default function HomePageCover(props) {
                 </Grid>
                 <Grid  item  xs={12} sm={12} md={5} lg={5} xl={5}>
                     <div className={props.viewWidth>=960?"":"textCover"}>
-                        <h1 style={{marginBottom:'-20px',marginTop:'50px'}}>Welcome To</h1>
-                        <img src={AstroBox}  style={{marginLeft:'-50px',width:"400px"}}></img>
-                        <p style={{width:"350px",textAlign:'justify'}}>Quality is is our #1 goal! Every mystery power box will be hand selected with the hottest new items each month. Choose one or more of our three themes that interest you and we will customize the items we include in your box</p>
+                        <h1 style={{marginBottom:'-20px',marginTop:'50px',color:'#04104e'}}>Welcome To</h1>
+                        <img src={AstroBox}  className={props.viewWidth>=960?classes.coverImage:classes.coverImageSmall}></img>
+                        <p style={{width:"350px",textAlign:'justify',color:'#04104e'}}>Quality is is our #1 goal! Every mystery power box will be hand selected with the hottest new items each month. Choose one or more of our three themes that interest you and we will customize the items we include in your box</p>
                     </div>
                 </Grid>
                 <Grid  item  xs={12} sm={12} md={6} lg={6} xl={6}>

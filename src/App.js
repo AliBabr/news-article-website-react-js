@@ -3,6 +3,7 @@ import { Switch, Route,BrowserRouter  } from 'react-router-dom';
 import Home from "./Pages/HomePage";
 import Login from "./Pages/LoginPage";
 import Subscription from './Pages/SubscriptionPage';
+import StripeCheckout from "react-stripe-checkout";
 
 import './App.css';
 

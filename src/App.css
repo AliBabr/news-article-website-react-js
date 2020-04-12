@@ -35,6 +35,12 @@
   text-align: center;
   color: white;
 }
+.buttonStarted{
+  margin-top: -5px;
+  font-size: 16pt;
+  text-align: center;
+  color: white;
+}
 .textCover{
   font-size: 16pt;
   text-align: center !important;

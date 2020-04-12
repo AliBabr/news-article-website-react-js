@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Components/Header';
 import HomePageCover from '../Containers/HomePageCover';
-import HomePageSignup from '../Containers/HomePageSignup';
+import HomePageHow from '../Containers/HomePageHow';
 import HomePagePlans from '../Containers/HomePagePlans';
 import Footer from '../Components/Footer';
 
@@ -31,9 +31,9 @@ export default class HomePage extends Component {
             <div>
                 <Header/>
                 <HomePageCover viewWidth={this.state.width}/>
-                <HomePageSignup/>
+                <HomePageHow  viewWidth={this.state.width}/>
                 <HomePagePlans/>
-                <Footer/>
+                <Footer viewWidth={this.state.width} />
             </div>
         )
     }

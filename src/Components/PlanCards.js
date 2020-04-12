@@ -28,6 +28,26 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage: "linear-gradient(to right, #890103, #04104e)",
         color: theme.palette.text.secondary,
       },
+
+      paperSmall: {
+        width:"100%",
+        height:170,
+          textAlign: 'center',
+          borderRadius:'20px',
+        backgroundColor:"white",
+        color: theme.palette.text.secondary,
+      },
+      innerPaperSmall: {
+          width:"100%",
+          height:145,
+          textAlign: 'center',
+          borderStartEndRadius:'0px',
+          borderStartStartRadius:'0px',
+          borderEndEndRadius:'20px',
+          borderEndStartRadius:'20px',
+          backgroundImage: "linear-gradient(to right, #890103, #04104e)",
+          color: theme.palette.text.secondary,
+        },
     buttons:{
         backgroundColor:"#e80644",
         width:'125px',
@@ -78,9 +98,9 @@ export default function PlanCards(props) {
     const classes = useStyles();
     return (
         <div>
-            <Paper elevation={2} className={classes.paper} >
+            <Paper elevation={2} className={props.viewWidth>=960?classes.paper:classes.paperSmall} >
                 <h1 className={classes.headerText}>{props.heading}</h1>
-            <Paper elevation={2} className={classes.innerPaper} >
+            <Paper elevation={2} className={props.viewWidth>=960?classes.innerPaper:classes.innerPaperSmall} >
             <Grid container spacing={2} justify="center">
                 <Grid item lg={6} md={6} sm={6} xs={6} >
                     <p className={classes.innerPaperLeftText}>
