@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function HomePagePlans() {
-    const Prices =["$30","$85.5","$162"];
+    const Prices =[30,85.5,162];
     const classes = useStyles();
     const Headings =['1 Month Plan','3 Months Plan','6 Months Plan'];
     return (

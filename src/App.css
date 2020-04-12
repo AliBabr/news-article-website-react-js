@@ -60,6 +60,15 @@
   height:37px !important;
 }
 
+.customButton{
+  background:#e80644 !important;
+  width:125px;
+  border-radius:25px !important;
+  font-weight:700 !important;
+  margin: 5px;
+  height:37px !important;
+}
+
 .checkoutButton span{
   background:#e80644 !important;
   display: none !important;

@@ -57,12 +57,11 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function PlanCards(props) {
-    const [product] = React.useState({
+    var [product] = React.useState({
         name: "Your Plan",
         price: 30,
         description: "News Plan"
       });
-    
       async function handleToken(token, addresses) {
         const response = await axios.post(
           "https://ry7v05l6on.sse.codesandbox.io/checkout",
@@ -101,19 +100,19 @@ export default function PlanCards(props) {
                     </p>
                 </Grid>
                 <Grid item lg={6} md={6} sm={6} xs={6} >
-                    <h1 className={classes.headerPrice}>{props.price}</h1>
+                    <h1 className={classes.headerPrice}>{"$"+props.price}</h1>
                     <StripeCheckout
                         className={"checkoutButton"}
                         stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
-                        amount={product.price * 100}
-                        name="Subscription"
+                        amount={props.price * 100}
+                        name={props.heading}
                         billingAddress
                         shippingAddress
                     />
                     {/* <Button style={{textTransform:'initial'}} className={classes.buttons} variant="contained" color="primary">
                         Select
                     </Button> */}
-                    <Button style={{textTransform:'initial'}} className={classes.buttons} variant="contained" color="primary">
+                    <Button style={{textTransform:'initial'}} className={"customButton"} variant="contained" color="primary">
                         Give As Gift
                     </Button>
                 </Grid>
