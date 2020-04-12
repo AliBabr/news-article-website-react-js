@@ -93,15 +93,19 @@ export default function Header() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <Link to="/login">
       <MenuItem>
-      <Typography className="headerLinks"><Link to="/login">Login</Link></Typography>
+      <Typography className="headerLinks">Login</Typography>
       </MenuItem>
+      </Link>
       <MenuItem>
       <Typography className="headerLinks"><a href="/#section1">How It Works</a></Typography>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-      <Typography className="headerLinks"><Link to="/subscription">Plans</Link></Typography>
+      <Link to="/subscription">
+      <MenuItem >
+      <Typography className="headerLinks">Plans</Typography>
       </MenuItem>
+      </Link>
     </Menu>
   );
 
