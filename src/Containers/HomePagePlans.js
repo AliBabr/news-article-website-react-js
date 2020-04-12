@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-export default function HomePagePlans() {
+export default function HomePagePlans(props) {
     const Prices =[30,85.5,162];
     const classes = useStyles();
     const Headings =['1 Month Plan','3 Months Plan','6 Months Plan'];
@@ -54,7 +54,7 @@ export default function HomePagePlans() {
                         <Grid item lg={2} md={2} sm={12} xs={12}>
                         </Grid>
                         <Grid item lg={4} md={4} sm={12} xs={12}>
-                            <PlanCard heading={Headings[0]} price={Prices[0]} />
+                            <PlanCard viewWidth={props.viewWidth} heading={Headings[0]} price={Prices[0]} />
                         </Grid>
                         <Grid item item lg={4} md={4} sm={12} xs={12}>
                             <p className="planList">
@@ -72,7 +72,7 @@ export default function HomePagePlans() {
                         <Grid item lg={2} md={2} sm={12} xs={12}>
                         </Grid>
                         <Grid item lg={4} md={4} sm={12} xs={12}>
-                            <PlanCard heading={Headings[1]} price={Prices[1]} />
+                            <PlanCard viewWidth={props.viewWidth}  heading={Headings[1]} price={Prices[1]} />
                         </Grid>
                         <Grid item item lg={4} md={4} sm={12} xs={12}>
                         <p className="planList">
@@ -90,7 +90,7 @@ export default function HomePagePlans() {
                         <Grid item lg={2} md={2} sm={12} xs={12}>
                         </Grid>
                         <Grid item lg={4} md={4} sm={12} xs={12}>
-                            <PlanCard heading={Headings[2]} price={Prices[2]}/>
+                            <PlanCard viewWidth={props.viewWidth}  heading={Headings[2]} price={Prices[2]}/>
                         </Grid>
                         <Grid item item lg={4} md={4} sm={12} xs={12}>
                         <p className="planList">

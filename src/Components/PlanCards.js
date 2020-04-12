@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       height:170,
         textAlign: 'center',
         borderRadius:'20px',
-      margin:theme.spacing(5),
+      margin:theme.spacing(6),
       backgroundColor:"white",
       color: theme.palette.text.secondary,
     },
@@ -96,6 +96,7 @@ export default function PlanCards(props) {
         }
       }
     const classes = useStyles();
+    console.log(props.viewWidth)
     return (
         <div>
             <Paper elevation={2} className={props.viewWidth>=960?classes.paper:classes.paperSmall} >

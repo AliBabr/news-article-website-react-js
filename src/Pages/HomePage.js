@@ -32,7 +32,7 @@ export default class HomePage extends Component {
                 <Header/>
                 <HomePageCover viewWidth={this.state.width}/>
                 <HomePageHow  viewWidth={this.state.width}/>
-                <HomePagePlans/>
+                <HomePagePlans viewWidth={this.state.width}/>
                 <Footer viewWidth={this.state.width} />
             </div>
         )

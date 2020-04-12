@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function HomePageCover(props) {
-    console.log("This is width",props.viewWidth);
     const classes = useStyles();
     return (
         <div className="homepage-cover-grid">
