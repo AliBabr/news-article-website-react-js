@@ -112,7 +112,7 @@ export default function PlanCards(props) {
     return (
         <div>
             <Paper elevation={2} className={useWindowSize()[0]>=960?classes.paper:classes.paperSmall} >
-                <h1 className={classes.headerText}>{props.heading}</h1>
+                <h1 className={classes.headerText}>{props.selected!=null?props.selected+props.heading:props.heading}</h1>
             <Paper elevation={2} className={classes.innerPaper} >
             <Grid container spacing={2} justify="center">
                 <Grid item lg={6} md={6} sm={6} xs={6} >

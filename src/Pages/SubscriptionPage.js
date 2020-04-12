@@ -119,11 +119,11 @@ export default function Subscription() {
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Username</p>
-                                    <input className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                    <input value="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Name</p>
-                                    <input className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                    <input value="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid> 
@@ -133,11 +133,11 @@ export default function Subscription() {
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Email</p>
-                                    <input className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                    <input value="Jhon@gmail.com" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Phone#</p>
-                                    <input className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                    <input value="051-23232323" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid> 
@@ -148,7 +148,7 @@ export default function Subscription() {
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Password</p>
-                                    <input className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                    <input type="password" value="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 </Grid>
@@ -161,11 +161,11 @@ export default function Subscription() {
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Adresss</p>
-                                    <textarea className={useWindowSize()[0]>=960?classes.textAreas:classes.textAreasSmall}/>
+                                    <textarea value="Jhons Home" className={useWindowSize()[0]>=960?classes.textAreas:classes.textAreasSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Billing Information</p>
-                                    <textarea className={useWindowSize()[0]>=960?classes.textAreas:classes.textAreasSmall}/>
+                                    <textarea value="Jhons Account" className={useWindowSize()[0]>=960?classes.textAreas:classes.textAreasSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={10} >
                                 </Grid>  
@@ -185,7 +185,7 @@ export default function Subscription() {
                             <PlanCard heading={Headings[0]} price={Prices[0]} />
                             </Grid>
                             <Grid item lg={4} md={6} sm={12} xs={12} >
-                                <PlanCard heading={Headings[1]} price={Prices[1]} />
+                                <PlanCard selected="*" heading={Headings[1]} price={Prices[1]} />
                             </Grid>
                             <Hidden only={['xs','lg','xl']}>
                             <Grid item lg={4} md={3} sm={12} xs={10} >
@@ -201,7 +201,7 @@ export default function Subscription() {
                         <Grid container spacing={0} >
                                 <Grid item lg={3} md={3} sm={10} xs={10} >
                                 </Grid>
-                                <Grid item lg={6} md={6} sm={10} xs={10} >
+                                <Grid item lg={6} md={6} sm={10} xs={11} >
                                 <input className={classes.buttons} type="submit" value="Done"/>
                                 </Grid>
                                 <Grid item lg={3} md={3} sm={10} xs={10} >
