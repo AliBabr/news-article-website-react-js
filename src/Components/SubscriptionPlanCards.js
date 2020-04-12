@@ -9,7 +9,7 @@ import StripeCheckout from "react-stripe-checkout";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-      width:"95%",
+      width:"100%",
       height:170,
         textAlign: 'center',
         borderRadius:'20px',
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     },
     headerPrice:{
         color:'white',
-        fontSize:"30pt",
+        fontSize:"28pt",
         fontWeight:'600',
         margin:'unset',
         marginTop:"-8px",
@@ -135,7 +135,7 @@ export default function PlanCards(props) {
                 <Grid item lg={6} md={6} sm={6} xs={6} >
                     <h1 className={classes.headerPrice}>{props.price}</h1>
                     <StripeCheckout
-                        className={"checkoutButton"}
+                        className={"checkoutButtonSub"}
                         stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
                         amount={product.price * 100}
                         name="Subscription"

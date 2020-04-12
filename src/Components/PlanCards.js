@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize:"25pt",
         fontWeight:'600',
         margin:'unset',
-        marginTop:"-14px",
+        marginTop:"-8px",
         marginBottom:"6px"
     },
     innerPaperLeftText:{
