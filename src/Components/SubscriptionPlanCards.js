@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     },
     headerPrice:{
         color:'white',
-        fontSize:"32pt",
+        fontSize:"30pt",
         fontWeight:'600',
         margin:'unset',
         marginTop:"-8px",

@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor:"#000745",
         fontWeight:'700',
         height:'37px',
-        marginBottom:'15px',
+        marginBottom:'25px',
         width:'80%',
         color:'white',
         borderRadius:'5px',
@@ -113,42 +113,42 @@ export default function Subscription() {
                         </Grid>
                         <Grid item lg={10} md={10} sm={10} xs={10} >
                             <Grid container>
-                                <Grid item lg={1} md={1} sm={12} xs={10} >
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={10} >
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Username</p>
                                     <input className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={10} >
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Name</p>
                                     <input className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
-                                <Grid item lg={1} md={1} sm={12} xs={10} >
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid> 
                                 {/* Second Row */}
 
-                                <Grid item lg={1} md={1} sm={12} xs={10} >
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={10} >
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Email</p>
                                     <input className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={10} >
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Phone#</p>
                                     <input className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
-                                <Grid item lg={1} md={1} sm={12} xs={10} >
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid> 
 
                                 {/* Third Row */}
 
-                                <Grid item lg={1} md={1} sm={12} xs={10} >
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={10} >
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Password</p>
                                     <input className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={10} >
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={10} >
                                 </Grid>
@@ -157,11 +157,11 @@ export default function Subscription() {
 
                                 <Grid item lg={1} md={1} sm={12} xs={10} >
                                 </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={10} >
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Adresss</p>
                                     <textarea className={useWindowSize()[0]>=960?classes.textAreas:classes.textAreasSmall}/>
                                 </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={10} >
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Billing Information</p>
                                     <textarea className={useWindowSize()[0]>=960?classes.textAreas:classes.textAreasSmall}/>
                                 </Grid>
