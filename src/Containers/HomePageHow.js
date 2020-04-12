@@ -56,8 +56,8 @@ export default function HomePageSignup() {
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
                 <Grid item sm={6} md={6} lg={6} xl={6} >
                     <h1 className="textSignup" >Here's How It Works!</h1>
-                    <p className={classes.paperSubHeader} style={{textAlign:'justify'}}>“We ship all orders around the 10th of the month. When you sign up before the end of the month, you will get the following month’s mystery power box around the 10th of the following month. </p>
-                    <p className={classes.paperSubHeader} style={{textAlign:'justify'}}>Quality is is our #1 goal! Every mystery power box will be hand selected with the hottest new items each month. Choose one or more of our three themes that interest you and we will customize the items we include in your box</p>
+                    <p className={classes.paperSubHeader} style={{textAlign:'justify',margin:'auto',width:"80%"}}>“We ship all orders around the 10th of the month. When you sign up before the end of the month, you will get the following month’s mystery power box around the 10th of the following month. </p>
+                    <p className={classes.paperSubHeader} style={{textAlign:'justify',margin:'auto',width:"80%"}}>Quality is is our #1 goal! Every mystery power box will be hand selected with the hottest new items each month. Choose one or more of our three themes that interest you and we will customize the items we include in your box</p>
                     {/* <p className={classes.paperSubHeader} style={{textAlign:'justify'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt nec velit ac feugiat. Maecenas nibh magna, cursus pretium pulvinar non Maecenas nibh magna, pulvinar cursus pretium non</p> */}
                 </Grid>
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>

@@ -42,7 +42,7 @@ export default function HomePagePlans(props) {
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
                 <Grid item sm={6} md={6} lg={6} xl={6} >
                     <h1 className="textPlan" style={{color:'#04104e'}} >Pick Your Plan!</h1>
-                    <p className={classes.paperSubHeader} style={{textAlign:'justify'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt nec velit ac feugiat.</p>
+                    <p className={classes.paperSubHeader} style={{textAlign:'justify',margin:'auto',width:"80%"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt nec velit ac feugiat.</p>
                 </Grid>
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
             </Grid>
@@ -76,7 +76,7 @@ export default function HomePagePlans(props) {
                         </Grid>
                         <Grid item item lg={4} md={4} sm={12} xs={12}>
                         <p className="planList">
-                                <h2>3 Months Plan</h2>
+                                <h2 style={{maginBottom:'5px'}}>3 Months Plan</h2>
                                 <ul>
                                     <li>Enjoy One Month</li>
                                     <li>Enjoy One Month</li>

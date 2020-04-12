@@ -2,8 +2,7 @@ import React ,{ useLayoutEffect, useState }  from 'react'
 import Cards from '../Components/Cards';
 import Header from '../Components/Header';
 import { makeStyles} from '@material-ui/core/styles';
-import {Hidden} from "@material-ui/core";
-import {Grid} from '@material-ui/core';
+import {Hidden,TextField,Grid} from "@material-ui/core";
 import Background from '../images/background.png';
 import Paper from '@material-ui/core/Paper';
 import PlanCard from "../Components/SubscriptionPlanCards";
@@ -19,17 +18,20 @@ const useStyles = makeStyles((theme) => ({
     },
     textFields:
     {
-      width:'95%',
+      width:'90%',
       height:'30px',
+      paddingLeft:'15px',
       border:'unset',
       borderRadius:'5px',
       backgroundColor:"#e7e7e7",
     },
     textAreas:
     {
-      width:'95%',
+      width:'90%',
       height:'80px',
       border:'unset',
+      paddingLeft:'15px',
+      paddingTop:'5px',
       borderRadius:'5px',
       backgroundColor:"#e7e7e7",
     },

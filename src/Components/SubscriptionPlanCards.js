@@ -9,7 +9,7 @@ import StripeCheckout from "react-stripe-checkout";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-      width:"100%",
+      width:"95%",
       height:170,
         textAlign: 'center',
         borderRadius:'20px',
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize:"28pt",
         fontWeight:'600',
         margin:'unset',
-        marginTop:"-8px",
+        marginTop:"5px",
         marginBottom:"6px"
     },
     innerPaperLeftText:{

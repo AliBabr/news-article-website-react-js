@@ -138,13 +138,20 @@
 }
 .planList{
   font-size: 14pt;
+  text-align: left;
+  margin-top: 15%;
+  color: #04104e;
+}
+
+.planListSmall{
+  font-size: 14pt;
   text-align: center;
   margin-top: 15%;
   color: #04104e;
 }
 
 .planList h2{
-  margin-bottom: -25px;
+  margin-bottom: -15px;
   margin-left: 18px;
 }
 
