@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
       width:"80%",
-      height:400,
+      height:450,
       margin:theme.spacing(5),
       textAlign: 'center',
       backgroundColor:"rgba(0, 0, 0, 0.5)",
@@ -37,7 +37,8 @@ export default function HomePagePlans(props) {
     const classes = useStyles();
     const Headings =['1 Month Plan','3 Months Plan','6 Months Plan'];
     return (
-        <div>
+        <section id={'planSection'}>
+            <div>
             <Grid container justify="center">
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
                 <Grid item sm={6} md={6} lg={6} xl={6} >
@@ -60,9 +61,9 @@ export default function HomePagePlans(props) {
                             <p className="planList">
                                 <h2>1 Month Plan</h2>
                                 <ul>
-                                    <li>Enjoy One Month</li>
-                                    <li>Enjoy One Month</li>
-                                    <li>Enjoy One Month</li>
+                                    <li>Recurring 1 Month Plan</li>
+                                    <li>Select desired box theme(s)</li>
+                                    <li>Cancel Anytime</li>
                                 </ul>
                             </p>
                         </Grid>
@@ -78,9 +79,9 @@ export default function HomePagePlans(props) {
                         <p className="planList">
                                 <h2 style={{maginBottom:'5px'}}>3 Months Plan</h2>
                                 <ul>
-                                    <li>Enjoy One Month</li>
-                                    <li>Enjoy One Month</li>
-                                    <li>Enjoy One Month</li>
+                                    <li>Recurring 3 Months Plan</li>
+                                    <li>Select desired box theme(s)</li>
+                                    <li>You save $1.5 per month</li>
                                 </ul>
                             </p>
                         </Grid>
@@ -96,9 +97,9 @@ export default function HomePagePlans(props) {
                         <p className="planList">
                                 <h2>6 Months Plan</h2>
                                 <ul>
-                                    <li>Enjoy One Month</li>
-                                    <li>Enjoy One Month</li>
-                                    <li>Enjoy One Month</li>
+                                    <li>Recurring 6 Months Plan</li>
+                                    <li>Select desired box theme(s)</li>
+                                    <li>You save $3 per month</li>
                                 </ul>
                             </p>
                         </Grid>
@@ -110,5 +111,6 @@ export default function HomePagePlans(props) {
                 </Grid>
             </Grid>
         </div>
+        </section>
     )
 }

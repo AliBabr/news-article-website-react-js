@@ -24,7 +24,17 @@ const useStyles = makeStyles((theme) => ({
     },
     coverImageSmall:{
         marginLeft:'-15px',width:"400px"
-    }
+    },
+    buttons:{
+        backgroundImage: "linear-gradient(to right, #04104e, #890103)",
+        fontWeight:'700',
+        height:'37px',
+        marginBottom:'15px',
+        width:'350px',
+        color:'white',
+        borderRadius:'5px',
+        border:'unset'
+      },
   }));
 
 
@@ -37,9 +47,12 @@ export default function HomePageCover(props) {
                 </Grid>
                 <Grid  item  xs={12} sm={12} md={5} lg={5} xl={5}>
                     <div className={props.viewWidth>=960?"":"textCover"}>
-                        <h1 style={{marginBottom:'-20px',marginTop:'50px',color:'#04104e'}}>Welcome To</h1>
+                        <h1 style={{marginBottom:'-20px',marginTop:'50px',color:'#04104e',fontFamily:"poppins"}}>Welcome To</h1>
                         <img src={AstroBox}  className={props.viewWidth>=960?classes.coverImage:classes.coverImageSmall}></img>
-                        <p style={{width:"350px",textAlign:'justify',color:'#04104e'}}>Quality is is our #1 goal! Every mystery power box will be hand selected with the hottest new items each month. Choose one or more of our three themes that interest you and we will customize the items we include in your box</p>
+                        <p style={{width:"350px",textAlign:'justify',color:'#04104e'}}>"Whether you are a gamer, comic fanatic or anime fan, we have got a box for you"</p>
+                        <p style={{width:"350px",textAlign:'justify',color:'#04104e'}}>We make a bundle of Collectibles, figures , comics and more, that will be delivered
+                         to your door every month. Each box will be a hand picked suprise of Awesomeness</p>
+                         <a href="/subscription"><input className={classes.buttons} value="Pick A Plan" type="button"></input></a>
                     </div>
                 </Grid>
                 <Grid  item  xs={12} sm={12} md={6} lg={6} xl={6}>

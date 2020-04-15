@@ -39,7 +39,8 @@ const useStyles = makeStyles((theme) => ({
       },
       buttons:{
         backgroundColor:"#e80644",
-        width:'125px',
+        width:'110px',
+        margin:'5px',
         borderRadius:"25px",
         fontWeight:'700',
         height:'37px',
@@ -134,14 +135,21 @@ export default function PlanCards(props) {
                 </Grid>
                 <Grid item lg={6} md={6} sm={6} xs={6} >
                     <h1 className={classes.headerPrice}>{props.price}</h1>
+                    {
+                      props.selected!=null?<Button style={{textTransform:'initial'}} className={classes.buttons} variant="contained" color="primary">
+                        Cancel
+                    </Button>:
                     <StripeCheckout
-                        className={"checkoutButtonSub"}
-                        stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
-                        amount={product.price * 100}
-                        name="Subscription"
-                        billingAddress
-                        shippingAddress
-                    />
+                    className={"checkoutButtonSub"}
+                    stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
+                    amount={product.price * 100}
+                    name="Subscription"
+                    billingAddress
+                    shippingAddress
+                />
+                    }
+                    
+                    
                 </Grid>
             </Grid>
             </Paper>

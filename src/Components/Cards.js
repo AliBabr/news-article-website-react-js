@@ -6,7 +6,7 @@ export default function Cards(props) {
         <div>
             <Paper elevation={2} className={props.class.paper} >
                 <img 
-                    style={{height:'150px',width:'120px',marginTop:"20%"}}
+                    style={{height:'125px',width:'100px',marginTop:"20%"}}
                     className={props.class.paperImage}
                     src={props.image}> 
                 </img>

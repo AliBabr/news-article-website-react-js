@@ -77,10 +77,21 @@ const useStyles = makeStyles((theme) => ({
         fontWeight:'700',
         height:'37px',
         marginBottom:'25px',
-        width:'80%',
+        width:'83%',
         color:'white',
         borderRadius:'5px',
         marginLeft:'15%',
+        border:'unset'
+      },
+      buttonEdit:{
+        backgroundColor:"#000745",
+        fontWeight:'700',
+        height:'37px',
+        marginBottom:'25px',
+        marginTop:"25px",
+        width:'95%',
+        color:'white',
+        borderRadius:'5px',
         border:'unset'
       },
   }));
@@ -170,6 +181,16 @@ export default function Subscription() {
                                     <textarea value="Jhons Account" className={useWindowSize()[0]>=960?classes.textAreas:classes.textAreasSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={10} >
+                                </Grid>
+
+                                {/* Fourth Row */}
+
+                                <Grid item lg={3} md={3} sm={12} xs={10} >
+                                </Grid>
+                                <Grid item lg={6} md={6} sm={12} xs={12} >
+                                <input className={classes.buttonEdit} type="submit" value="Edit"/>
+                                </Grid>
+                                <Grid item lg={3} md={3} sm={12} xs={10} >
                                 </Grid>  
                         </Grid>
                     </Grid>

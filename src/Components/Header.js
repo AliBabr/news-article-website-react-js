@@ -101,11 +101,9 @@ export default function Header() {
       <MenuItem>
       <Typography className="headerLinks"><a href="/#section1">How It Works</a></Typography>
       </MenuItem>
-      <Link style={{textDecoration:"none"}} to="/subscription">
       <MenuItem >
-      <Typography className="headerLinks">Plans</Typography>
+      <Typography className="headerLinks"><a href="/#planSection">Plans</a></Typography>
       </MenuItem>
-      </Link>
     </Menu>
   );
 
@@ -118,7 +116,7 @@ export default function Header() {
           <Hidden smDown>
             <Typography className="headerLinks"><Link to="/login">Login</Link></Typography>
             <Typography className="headerLinks"><a href="/#section1">How It Works</a></Typography>
-            <Typography className="headerLinks"><Link to="/subscription">Plans</Link></Typography>
+            <Typography className="headerLinks"><a href="/#planSection">Plans</a></Typography>
           </Hidden>
           <div className={classes.sectionMobile}>
             <IconButton

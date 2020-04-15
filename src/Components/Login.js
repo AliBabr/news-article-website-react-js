@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     {
       width:'90%',
       height:'37px',
+      paddingLeft:'15px',
       border:'unset',
       marginLeft:'5%',
       borderRadius:'5px',
@@ -56,8 +57,8 @@ export default function Login() {
             <form noValidate>
               <p style={{paddingTop:'30px'}} className={classes.labels} >Username (E-mail)</p>
               <input className={classes.textFields}/>
-              <p  className={classes.labels}>Name</p>
-              <input  className={classes.textFields}/>
+              <p  className={classes.labels}>Password</p>
+              <input type="password"  className={classes.textFields}/>
               <p className={classes.forgotPassword}>Forgot Password?</p>
               <input className={classes.buttons} type="submit" value="Login"/>
             </form>

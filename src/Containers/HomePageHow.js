@@ -2,7 +2,7 @@ import React from 'react'
 import Cards from '../Components/Cards';
 import { makeStyles} from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core';
-import Background from '../images/background.png'
+import Background from '../images/backgroundold.png'
 import PickTheme from '../images/comic.png';
 import MoniterImage from '../images/commerce-and-shopping.png';
 import Subscriptionimage from '../images/subscription(1).png';
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
       width:"80%",
-      height:400,
+      height:380,
       margin:theme.spacing(5),
       textAlign: 'center',
       backgroundColor:"rgba(0, 0, 0, 0.5)",
@@ -48,7 +48,10 @@ const useStyles = makeStyles((theme) => ({
 export default function HomePageSignup() {
     const classes = useStyles();
     const Headings = ['Pick Your Theme(s)','Select Monthly Plans','Checkout and Enjoy'];
-    const SubHeadings =["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt nec velit ac feugiat."];
+    const SubHeadings =["Choose which theme(s) interst you and we will customize Your Mystry Power Box",
+                        "Go month to month and save money with 3 or 6 months plan",
+                        "In a few weeks you  monthly Power Box will be on its way."
+];
     return (
         <section id={'section1'}>
             <div  style={{backgroundImage:`url(${Background})`}} className="homepageSignup">
@@ -56,8 +59,9 @@ export default function HomePageSignup() {
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
                 <Grid item sm={6} md={6} lg={6} xl={6} >
                     <h1 className="textSignup" >Here's How It Works!</h1>
-                    <p className={classes.paperSubHeader} style={{textAlign:'justify',margin:'auto',width:"80%"}}>“We ship all orders around the 10th of the month. When you sign up before the end of the month, you will get the following month’s mystery power box around the 10th of the following month. </p>
-                    <p className={classes.paperSubHeader} style={{textAlign:'justify',margin:'auto',width:"80%"}}>Quality is is our #1 goal! Every mystery power box will be hand selected with the hottest new items each month. Choose one or more of our three themes that interest you and we will customize the items we include in your box</p>
+                    <p className={classes.paperSubHeader} style={{textAlign:'justify',margin:'auto',width:"80%"}}>We ship all orders around the 10th of the month. When you sign up before the end of the month, you will get the following month’s mystery power box around the 10th of the following month. </p>
+                    <p></p>
+                    <p className={classes.paperSubHeader} style={{textAlign:'justify',margin:'auto',width:"80%"}}>Quality is our #1 goal! Every mystery power box will be hand selected with the hottest new items each month. Choose one or more of our three themes that interest you and we will customize the items we include in your box</p>
                     {/* <p className={classes.paperSubHeader} style={{textAlign:'justify'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt nec velit ac feugiat. Maecenas nibh magna, cursus pretium pulvinar non Maecenas nibh magna, pulvinar cursus pretium non</p> */}
                 </Grid>
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>

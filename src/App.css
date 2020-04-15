@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+body{
+  font-family: "poppins";
+}
 
 .App-logo {
   height: 40vmin;
@@ -19,14 +22,14 @@
 .homepageSignup{
   min-height: 100vh;
   background-repeat:no-repeat;
-  background-size:auto;
+  background-size:cover;
   background-position:center;
 }
 
 .homepageSubscription{
-  min-height: 120vh;
+  min-height: 100vh;
   background-repeat:no-repeat;
-  background-size:auto;
+  background-size:cover;
   background-position:center;
 }
 
@@ -109,12 +112,12 @@
 
 .textLogin{
   font-size: 16pt;
-  padding: 20px;
+  padding: 0px;
   text-align: center;
   color: white;
 }
 .textLoginP{
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   color: white;
 }
@@ -133,7 +136,7 @@
 .footer{
   height: 450x;
   background-repeat:no-repeat;
-  background-size:auto;
+  background-size:cover;
   background-position:center;
 }
 .planList{
