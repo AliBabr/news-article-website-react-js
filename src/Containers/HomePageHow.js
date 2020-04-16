@@ -79,7 +79,7 @@ export default function HomePageSignup() {
             <Grid container justify="center">
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
                 <Grid item sm={6} md={6} lg={6} xl={6} >
-                    <h1 className="buttonStarted" ><a href="/subscription"><input style={{fontSize:'12pt'}} className={classes.buttons} value="Get Started Today!" type="button"></input></a></h1>
+                    <h1 className="buttonStarted" ><a href="/#planSection"><input style={{fontSize:'12pt'}} className={classes.buttons} value="Get Started Today!" type="button"></input></a></h1>
                  </Grid>
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
             </Grid>
