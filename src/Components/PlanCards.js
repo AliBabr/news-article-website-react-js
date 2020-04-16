@@ -164,7 +164,7 @@ export default function PlanCards(props) {
                     </p>
                 </Grid>
                 <Grid item lg={6} md={6} sm={6} xs={6} >
-                    <h1 style={{letterSpacing:'0.1em'}} className={classes.headerPrice}>{"$"+props.price}</h1>
+                    <h1 style={{letterSpacing:'0.1em'}} className={classes.headerPrice}>{props.displayPrice}</h1>
                     <p style={{margin:"0px",marginTop:"-13px",color:"white",fontSize:"10pt"}}>{props.perMonth}</p>
                     <StripeCheckout
                         className={"checkoutButton"}

@@ -54,8 +54,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Subscription() {
     const classes = useStyles();
-    const Headings =['1 Month Plan','3 Months Plan','6 Months Plan'];
-    const Prices =["$30","$85.5","$162"];
+    const Headings =['1 Month Plan','3 Month Plan','6 Month Plan'];
+    const Prices =["$30","$85.50","$162"];
     return (
         <div style={{backgroundImage:`url(${Background})`}} className="homepageSubscription">
             <Grid container spacing={2} justify="center">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -50,17 +50,36 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function Login() {
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
     const classes = useStyles();
+    function handleUser(e)
+    {
+      console.log("it coming here")
+      setUser(e.target.value);
+    }
+    function handlePassword(e)
+    {
+      setPassword(e.target.value);
+    }
+    function handleLogin(e)
+    {
+      e.preventDefault();
+      if(user=="jhon" && password =="jhon")
+      {
+        window.location.assign('/account')
+      }
+    }
     return (
         <div>
             <Paper elevation={2} className={classes.paper} >
             <form noValidate>
               <p style={{paddingTop:'30px'}} className={classes.labels} >Username (E-mail)</p>
-              <input className={classes.textFields}/>
+              <input onChange={handleUser} value={user} className={classes.textFields}/>
               <p  className={classes.labels}>Password</p>
-              <input type="password"  className={classes.textFields}/>
+              <input  type="password" onChange={handlePassword} value={password}  className={classes.textFields}/>
               <p className={classes.forgotPassword}>Forgot Password?</p>
-              <input className={classes.buttons} type="submit" value="Login"/>
+              <input className={classes.buttons} onClick={handleLogin} type="submit" value="Login"/>
             </form>
             </Paper>
         </div>

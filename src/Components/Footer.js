@@ -36,7 +36,7 @@ export default function Footer(props) {
             <Grid container  justify="center">
                 <Grid item xs={2} sm={0} md={1} lg={1}  ></Grid>
                 <Grid item xs={10} sm={6} md={3} lg={3}  >
-                <img src={FooterImage} style={{height:"270px",width:"250px"}} alt="footer"></img>
+                <img src={FooterImage} style={{height:"270px",width:"250px",marginTop:"20px"}} alt="footer"></img>
                 </Grid>
                 <Grid item xs={10} sm={5} md={4} lg={4}  >
                     <div className={props.viewWidth>=960?classes.addressDiv:classes.addressDivSmall}>

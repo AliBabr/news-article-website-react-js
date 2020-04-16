@@ -70,10 +70,10 @@ export default function HomePageSignup() {
                     <Cards class={classes} image={PickTheme} heading={Headings[0]} subheading={SubHeadings[0]}/>
                 </Grid>
                 <Grid item lg={4} md={4} sm={10} xs={10} >
-                    <Cards class={classes} image={Subscriptionimage} heading={Headings[1]} subheading={SubHeadings[0]}/>
+                    <Cards class={classes} image={Subscriptionimage} heading={Headings[1]} subheading={SubHeadings[1]}/>
                 </Grid>
                 <Grid item lg={4} md={4} sm={10} xs={10} >
-                    <Cards class={classes} image={MoniterImage} heading={Headings[2]} subheading={SubHeadings[0]} />
+                    <Cards class={classes} image={MoniterImage} heading={Headings[2]} subheading={SubHeadings[2]} />
                 </Grid>
             </Grid>
             <Grid container justify="center">
