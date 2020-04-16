@@ -10,13 +10,13 @@ import { makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     addressDiv:{
         textAlign:'left',
-        marginTop:'30px',
+        marginTop:'0px',
         padding:'10px',
         color:'white'
     },
     addressDivSmall:{
         textAlign:'left',
-        marginTop:'30px',
+        marginTop:'25px',
         marginLeft:'20%',
         padding:'10px',
         color:'white'
@@ -34,17 +34,18 @@ export default function Footer(props) {
     return (
         <div style={{backgroundImage:`url(${Background})`}} className="footer">
             <Grid container  justify="center">
-                <Grid item xs={1} sm={0} md={1} lg={1}  ></Grid>
-                <Grid item xs={11} sm={6} md={3} lg={3}  >
-                <img src={FooterImage} style={{height:"300px",width:"300px"}} alt="footer"></img>
+                <Grid item xs={2} sm={0} md={1} lg={1}  ></Grid>
+                <Grid item xs={10} sm={6} md={3} lg={3}  >
+                <img src={FooterImage} style={{height:"270px",width:"250px"}} alt="footer"></img>
                 </Grid>
                 <Grid item xs={10} sm={5} md={4} lg={4}  >
                     <div className={props.viewWidth>=960?classes.addressDiv:classes.addressDivSmall}>
                         <h3>Our Company</h3>
-                        <p>Address goes here</p>
-                        <p>Address goes here</p>
-                        <p>exampl@gmail.com</p>
-                        <p>+102-2342-2342-2</p>
+                        <p>Astro Box</p>
+                        <p>8547 E. Arapahoe Rd. Ste j #49</p>
+                        <p>Greenwood Village CO 80112</p>
+                        <p>astropowerbox@gmail.com</p>
+                        <p>(720)-239-2382</p>
                     </div>
                 </Grid>
                 <Grid item xs={10} sm={10} md={4} lg={4} alignContent="flex-end"  >

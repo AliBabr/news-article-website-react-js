@@ -1,11 +1,11 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import CovereImage from '../images/header.png';
+import CovereImage from '../images/headerNew.png';
 import AstroBox from '../images/Astro Box-1.png';
 import { makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     coverLarge:{
-        height:'70vh',
+        height:'75vh',
         width:'65vw',
         float:"right",
     },
@@ -50,9 +50,9 @@ export default function HomePageCover(props) {
                         <h1 style={{marginBottom:'-20px',marginTop:'50px',color:'#04104e',fontFamily:"poppins"}}>Welcome To</h1>
                         <img src={AstroBox}  className={props.viewWidth>=960?classes.coverImage:classes.coverImageSmall}></img>
                         <p style={{width:"350px",textAlign:'justify',color:'#04104e'}}>"Whether you are a gamer, comic fanatic or anime fan, we have got a box for you"</p>
-                        <p style={{width:"350px",textAlign:'justify',color:'#04104e'}}>We make a bundle of Collectibles, figures , comics and more, that will be delivered
-                         to your door every month. Each box will be a hand picked suprise of Awesomeness</p>
-                         <a href="/subscription"><input className={classes.buttons} value="Pick A Plan" type="button"></input></a>
+                        <p style={{width:"350px",textAlign:'justify',color:'#04104e'}}>We make a bundle of collectibles, figures , comics books and more, that will be delivered
+                         to your door every month. Each box will be a hand picked suprise of awesomeness</p>
+                         <a href="/#planSection"><input className={classes.buttons} value="Pick A Plan" type="button"></input></a>
                     </div>
                 </Grid>
                 <Grid  item  xs={12} sm={12} md={6} lg={6} xl={6}>

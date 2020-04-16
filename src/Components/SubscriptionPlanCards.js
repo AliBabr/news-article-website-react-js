@@ -88,6 +88,11 @@ const useStyles = makeStyles((theme) => ({
   }
 
 export default function PlanCards(props) {
+
+  const [gameChecked, setGameCheck] = useState(true);
+  const [checkCount, setCheckCount] = useState(3);
+  const [animeChecked, setAnimeCheck] = useState(true);
+  const [comicChecked, setComicCheck] = useState(true);
   const [product] = React.useState({
     name: "Your Plan",
     price: 30,
@@ -107,6 +112,46 @@ export default function PlanCards(props) {
       toast("Something went wrong", { type: "error" });
     }
   }
+
+  function handleGameClick()
+      {
+        if(gameChecked==false)
+        {
+          setGameCheck(!gameChecked);
+          setCheckCount(checkCount+1);
+        }
+        else if(checkCount>1)
+        {
+          setGameCheck(!gameChecked);
+          setCheckCount(checkCount-1);
+        }
+      }
+      function handleComicClick()
+      {
+        if(comicChecked==false)
+        {
+          setComicCheck(!comicChecked);
+          setCheckCount(checkCount+1);
+        }
+        else if(checkCount>1)
+        {
+          setComicCheck(!comicChecked);
+          setCheckCount(checkCount-1);
+        }
+      }
+      function handleAnimeClick()
+      {
+        if(animeChecked==false)
+        {
+          setAnimeCheck(!animeChecked);
+          setCheckCount(checkCount+1)
+        }
+        else if(checkCount>1)
+        {
+          setAnimeCheck(!animeChecked);
+          setCheckCount(checkCount-1)
+        }
+      }
   
     console.log("The window is resizing",useWindowSize()[0])
     const classes = useStyles();
@@ -118,18 +163,18 @@ export default function PlanCards(props) {
             <Grid container spacing={2} justify="center">
                 <Grid item lg={6} md={6} sm={6} xs={6} >
                     <p className={classes.innerPaperLeftText}>
-                        <ul class="checkmark">
-                            <li>Games</li>
+                        <ul className={gameChecked?"checkmark":"uncheckmark"}>
+                            <li onClick={handleGameClick}>Gaming</li>
                         </ul>
                     </p>
                     <p className={classes.innerPaperLeftText}>
-                        <ul class="checkmark">
-                            <li>Comics</li>
+                        <ul className={comicChecked?"checkmark":"uncheckmark"}>
+                            <li onClick={handleComicClick}>Comics</li>
                         </ul>
                     </p>
                     <p className={classes.innerPaperLeftText}>
-                        <ul class="checkmark">
-                            <li>Anime</li>
+                        <ul className={animeChecked?"checkmark":"uncheckmark"}>
+                            <li onClick={handleAnimeClick}>Anime</li>
                         </ul>
                     </p>
                 </Grid>

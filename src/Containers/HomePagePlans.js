@@ -36,6 +36,7 @@ export default function HomePagePlans(props) {
     const Prices =[30,85.5,162];
     const classes = useStyles();
     const Headings =['1 Month Plan','3 Months Plan','6 Months Plan'];
+    const monthlyAmount = ['$28.5 per month','$27 per month']
     return (
         <section id={'planSection'}>
             <div>
@@ -43,7 +44,8 @@ export default function HomePagePlans(props) {
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
                 <Grid item sm={6} md={6} lg={6} xl={6} >
                     <h1 className="textPlan" style={{color:'#04104e'}} >Pick Your Plan!</h1>
-                    <p className={classes.paperSubHeader} style={{textAlign:'justify',margin:'auto',width:"80%"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt nec velit ac feugiat.</p>
+                    <p className={classes.paperSubHeader} style={{textAlign:'center',margin:'auto',width:"80%"}}>Pick Your Plan(s)!</p>
+                    <p className={classes.paperSubHeader} style={{textAlign:'center',margin:'auto',width:"80%"}}>Pay for additional months to save money.</p>
                 </Grid>
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
             </Grid>
@@ -73,13 +75,13 @@ export default function HomePagePlans(props) {
                         <Grid item lg={2} md={2} sm={12} xs={12}>
                         </Grid>
                         <Grid item lg={4} md={4} sm={12} xs={12}>
-                            <PlanCard viewWidth={props.viewWidth}  heading={Headings[1]} price={Prices[1]} />
+                            <PlanCard viewWidth={props.viewWidth}  heading={Headings[1]} price={Prices[1]} perMonth={monthlyAmount[0]} />
                         </Grid>
                         <Grid item item lg={4} md={4} sm={12} xs={12}>
                         <p className="planList">
                                 <h2 style={{maginBottom:'5px'}}>3 Months Plan</h2>
                                 <ul>
-                                    <li>Recurring 3 Months Plan</li>
+                                    <li>Recurring 3 Month Plan</li>
                                     <li>Select desired box theme(s)</li>
                                     <li>You save $1.5 per month</li>
                                 </ul>
@@ -91,13 +93,13 @@ export default function HomePagePlans(props) {
                         <Grid item lg={2} md={2} sm={12} xs={12}>
                         </Grid>
                         <Grid item lg={4} md={4} sm={12} xs={12}>
-                            <PlanCard viewWidth={props.viewWidth}  heading={Headings[2]} price={Prices[2]}/>
+                            <PlanCard viewWidth={props.viewWidth}  heading={Headings[2]} price={Prices[2]} perMonth={monthlyAmount[1]}/>
                         </Grid>
                         <Grid item item lg={4} md={4} sm={12} xs={12}>
                         <p className="planList">
                                 <h2>6 Months Plan</h2>
                                 <ul>
-                                    <li>Recurring 6 Months Plan</li>
+                                    <li>Recurring 6 Month Plan</li>
                                     <li>Select desired box theme(s)</li>
                                     <li>You save $3 per month</li>
                                 </ul>

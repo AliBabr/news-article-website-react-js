@@ -47,11 +47,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function HomePageSignup() {
     const classes = useStyles();
-    const Headings = ['Pick Your Theme(s)','Select Monthly Plans','Checkout and Enjoy'];
-    const SubHeadings =["Choose which theme(s) interst you and we will customize Your Mystry Power Box",
-                        "Go month to month and save money with 3 or 6 months plan",
-                        "In a few weeks you  monthly Power Box will be on its way."
-];
+    const Headings = ['Pick Your Theme(s)','Select Monthly Plan','Checkout and Enjoy'];
+    const SubHeadings =["Choose which theme(s) interest you and we will customize the items Your Mystry Power Box",
+                        "Go month to month and save money with a 3 or 6 month plan",
+                        "In a few weeks your  monthly Power Box will be on its way."];
     return (
         <section id={'section1'}>
             <div  style={{backgroundImage:`url(${Background})`}} className="homepageSignup">
@@ -74,13 +73,13 @@ export default function HomePageSignup() {
                     <Cards class={classes} image={Subscriptionimage} heading={Headings[1]} subheading={SubHeadings[0]}/>
                 </Grid>
                 <Grid item lg={4} md={4} sm={10} xs={10} >
-                    <Cards class={classes} image={MoniterImage} heading={Headings[2]} subheading={SubHeadings[0]}/>
+                    <Cards class={classes} image={MoniterImage} heading={Headings[2]} subheading={SubHeadings[0]} />
                 </Grid>
             </Grid>
             <Grid container justify="center">
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
                 <Grid item sm={6} md={6} lg={6} xl={6} >
-                    <h1 className="buttonStarted" ><a href="/subscription"><input className={classes.buttons} value="Get Started Today!" type="button"></input></a></h1>
+                    <h1 className="buttonStarted" ><a href="/subscription"><input style={{fontSize:'12pt'}} className={classes.buttons} value="Get Started Today!" type="button"></input></a></h1>
                  </Grid>
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
             </Grid>

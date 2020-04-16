@@ -3,7 +3,7 @@ import Cards from '../Components/Cards';
 import Header from '../Components/Header';
 import { makeStyles} from '@material-ui/core/styles';
 import {Hidden,TextField,Grid} from "@material-ui/core";
-import Background from '../images/background.png';
+import Background from '../images/backgroundold.png';
 import Paper from '@material-ui/core/Paper';
 import PlanCard from "../Components/SubscriptionPlanCards";
 
@@ -131,7 +131,7 @@ export default function Subscription() {
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Username</p>
+                                <p  className={classes.labels}>Username (E-mail)</p>
                                     <input value="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
@@ -145,8 +145,8 @@ export default function Subscription() {
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Email</p>
-                                    <input value="Jhon@gmail.com" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                <p  className={classes.labels}>Password</p>
+                                <input type="password" value="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Phone#</p>
@@ -156,19 +156,6 @@ export default function Subscription() {
                                 </Grid> 
 
                                 {/* Third Row */}
-
-                                <Grid item lg={1} md={1} sm={12} xs={12} >
-                                </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Password</p>
-                                    <input type="password" value="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
-                                </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={12} >
-                                </Grid>
-                                <Grid item lg={1} md={1} sm={12} xs={10} >
-                                </Grid>
-
-                                {/* Fourth Row */}
 
                                 <Grid item lg={1} md={1} sm={12} xs={10} >
                                 </Grid>
