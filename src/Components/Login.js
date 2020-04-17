@@ -32,6 +32,13 @@ const useStyles = makeStyles((theme) => ({
       marginBottom:'40px',
       fontFamily:'poppins'
     },
+    forgotPasswordSmall:{
+      color:"#000745",
+      marginLeft:'55%',
+      width:'45%',
+      marginBottom:'40px',
+      fontFamily:'poppins'
+    },
     labels:{
       color:"#000745",
       marginLeft:'5%',
@@ -54,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     
   }));
 
-export default function Login() {
+export default function Login( props) {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [open, setOpen] = React.useState(false);
@@ -97,7 +104,7 @@ export default function Login() {
               <p  className={classes.labels}>Password</p>
               <input  type="password" onChange={handlePassword} value={password}  className={classes.textFields}/>
               {/* <p className={classes.forgotPassword}>Forgot Password?</p> */}
-              <Button className={classes.forgotPassword} onClick={handleClick}>Forgot Password</Button>
+              <Button className={props.viewWidth>=450?classes.forgotPassword:classes.forgotPasswordSmall} onClick={handleClick}>Forgot Password</Button>
       <Snackbar
         anchorOrigin={{
           vertical: 'bottom',
