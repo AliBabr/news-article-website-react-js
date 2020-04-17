@@ -27,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
     },
     forgotPassword:{
       color:"#000745",
-      marginLeft:'32%',
-      width:'100%',
+      marginLeft:'65%',
+      width:'35%',
       marginBottom:'40px',
       fontFamily:'poppins'
     },
