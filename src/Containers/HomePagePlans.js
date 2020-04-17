@@ -45,7 +45,7 @@ export default function HomePagePlans(props) {
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>
                 <Grid item sm={6} md={6} lg={6} xl={6} >
                     <h1 className="textPlan" style={{color:'#04104e'}} >Pick Your Plan!</h1>
-                    <p className={classes.paperSubHeader} style={{textAlign:'center',margin:'auto',width:"80%"}}>Pick Your Themes(s)!</p>
+                    <p className={classes.paperSubHeader} style={{textAlign:'center',margin:'auto',width:"80%"}}>Pick Your Theme(s)!</p>
                     <p className={classes.paperSubHeader} style={{textAlign:'center',margin:'auto',width:"80%"}}>Pay for additional months to save money.</p>
                 </Grid>
                 <Grid item sm={3} md={3} lg={3} xl={3} ></Grid>

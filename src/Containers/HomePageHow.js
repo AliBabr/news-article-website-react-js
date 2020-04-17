@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 export default function HomePageSignup() {
     const classes = useStyles();
     const Headings = ['Pick Your Theme(s)','Select Monthly Plan','Checkout and Enjoy'];
-    const SubHeadings =["Choose which theme(s) interest you and we will customize the items Your Mystry Power Box",
+    const SubHeadings =["Choose which theme(s) interest you and we will customize the items in Your Mystry Power Box",
                         "Go month to month and save money with a 3 or 6 month plan",
                         "In a few weeks your  monthly Power Box will be on its way."];
     return (

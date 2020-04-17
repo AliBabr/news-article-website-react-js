@@ -2,7 +2,10 @@ import React,{useState} from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -24,8 +27,10 @@ const useStyles = makeStyles((theme) => ({
     },
     forgotPassword:{
       color:"#000745",
-      marginLeft:'65%',
+      marginLeft:'32%',
+      width:'100%',
       marginBottom:'40px',
+      fontFamily:'poppins'
     },
     labels:{
       color:"#000745",
@@ -52,6 +57,19 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
     const classes = useStyles();
     function handleUser(e)
     {
@@ -78,7 +96,28 @@ export default function Login() {
               <input onChange={handleUser} value={user} className={classes.textFields}/>
               <p  className={classes.labels}>Password</p>
               <input  type="password" onChange={handlePassword} value={password}  className={classes.textFields}/>
-              <p className={classes.forgotPassword}>Forgot Password?</p>
+              {/* <p className={classes.forgotPassword}>Forgot Password?</p> */}
+              <Button className={classes.forgotPassword} onClick={handleClick}>Forgot Password</Button>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message="E-maill sent"
+        action={
+          <React.Fragment>
+            <Button color="secondary" size="small" onClick={handleClose}>
+              UNDO
+            </Button>
+            <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+              <CloseIcon fontSize="small" />
+            </IconButton>
+          </React.Fragment>
+        }
+      />
               <input className={classes.buttons} onClick={handleLogin} type="submit" value="Login"/>
             </form>
             </Paper>

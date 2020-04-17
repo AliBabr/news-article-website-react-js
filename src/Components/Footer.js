@@ -42,7 +42,7 @@ export default function Footer(props) {
                     <div className={props.viewWidth>=960?classes.addressDiv:classes.addressDivSmall}>
                         <h3>Our Company</h3>
                         <p>Astro Box</p>
-                        <p>8547 E. Arapahoe Rd. Ste j #49</p>
+                        <p>8547 E. Arapahoe Rd. Ste J #429</p>
                         <p>Greenwood Village CO 80112</p>
                         <p>astropowerbox@gmail.com</p>
                         <p>(720)-239-2382</p>
