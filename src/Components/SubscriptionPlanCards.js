@@ -179,7 +179,7 @@ export default function PlanCards(props) {
                     </p>
                 </Grid>
                 <Grid item lg={6} md={6} sm={6} xs={6} >
-                    <h1 className={classes.headerPrice}>{props.price}</h1>
+                    <h1 className={classes.headerPrice}>{props.displayPrice}</h1>
                     {
                       props.selected!=null?<Button style={{textTransform:'initial'}} className={classes.buttons} variant="contained" color="primary">
                         Cancel

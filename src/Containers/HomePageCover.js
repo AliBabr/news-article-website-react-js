@@ -50,7 +50,7 @@ export default function HomePageCover(props) {
                         <h1 style={{marginBottom:'-20px',marginTop:'50px',color:'#04104e',fontFamily:"poppins"}}>Welcome To</h1>
                         <img src={AstroBox}  className={props.viewWidth>=960?classes.coverImage:classes.coverImageSmall}></img>
                         <p style={{width:"350px",textAlign:'justify',color:'#04104e'}}>"Whether you are a gamer, comic fanatic or anime fan, we have got a box for you"</p>
-                        <p style={{width:"350px",textAlign:'justify',color:'#04104e'}}>We make a bundle of collectibles, figures , comics books and more, that will be delivered
+                        <p style={{width:"350px",textAlign:'justify',color:'#04104e'}}>We make a bundle of collectibles, figures , comic books and more, that will be delivered
                          to your door every month. Each box will be a hand picked suprise of awesomeness!</p>
                          <a href="/#planSection"><input className={classes.buttons} value="Pick A Plan" type="button"></input></a>
                     </div>

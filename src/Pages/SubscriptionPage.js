@@ -113,7 +113,8 @@ export default function Subscription() {
     
     const classes = useStyles();
     const Headings =['1 Month Plan','3 Month Plan','6 Month Plan'];
-    const Prices =["$30","$85.50","$162"];
+    const Prices =[30,85.50,162];
+    const displayPrices =["$30","$85.50","$162"];
     return (
         <div style={{backgroundImage:`url(${Background})`}} className="homepageSubscription">
             <Header></Header>
@@ -160,7 +161,7 @@ export default function Subscription() {
                                 <Grid item lg={1} md={1} sm={12} xs={10} >
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Adresss</p>
+                                <p  className={classes.labels}>Address</p>
                                     <textarea value="Jhons Home" className={useWindowSize()[0]>=960?classes.textAreas:classes.textAreasSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
@@ -184,7 +185,7 @@ export default function Subscription() {
                     <Grid item lg={10} md={10} sm={10} xs={10} >
                     </Grid>
                     </Grid>
-                    <h6 style={{color:'gray',margin:"0px",fontSize:'12pt',textAlign:'center'}} >Upgrage Subscription!</h6>
+                    <h6 style={{color:'gray',margin:"0px",fontSize:'12pt',textAlign:'center'}} >Upgrade Subscription!</h6>
                     
                     <Grid container spacing={0} >
                         <Grid item lg={1} md={1} sm={10} xs={10} >
@@ -192,17 +193,17 @@ export default function Subscription() {
                         <Grid item lg={10} md={10} sm={10} xs={10} >
                             <Grid container>
                             <Grid item lg={4} md={6} sm={12} xs={12} >
-                            <PlanCard heading={Headings[0]} price={Prices[0]} />
+                            <PlanCard heading={Headings[0]} price={Prices[0]} displayPrice={displayPrices[0]} />
                             </Grid>
                             <Grid item lg={4} md={6} sm={12} xs={12} >
-                                <PlanCard selected="*" heading={Headings[1]} price={Prices[1]} />
+                                <PlanCard selected="*" heading={Headings[1]} price={Prices[1]} displayPrice={displayPrices[1]} />
                             </Grid>
                             <Hidden only={['xs','lg','xl']}>
                             <Grid item lg={4} md={3} sm={12} xs={10} >
                             </Grid> 
                             </Hidden>
                             <Grid item lg={4} md={6} sm={12} xs={12} >
-                                <PlanCard heading={Headings[2]} price={Prices[2]} />
+                                <PlanCard heading={Headings[2]} price={Prices[2]} displayPrice={displayPrices[2]} />
                             </Grid> 
                             </Grid>
                         </Grid>
