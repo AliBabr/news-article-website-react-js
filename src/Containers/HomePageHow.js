@@ -49,7 +49,7 @@ export default function HomePageSignup() {
     const classes = useStyles();
     const Headings = ['Pick Your Theme(s)','Select Monthly Plan','Checkout and Enjoy'];
     const SubHeadings =["Choose which theme(s) interest you and we will customize the items in Your Mystry Power Box",
-                        "Go month to month and save money with a 3 or 6 month plan",
+                        "Go month to month or save money with a 3 or 6 month plan",
                         "In a few weeks your  monthly Power Box will be on its way."];
     return (
         <section id={'section1'}>
