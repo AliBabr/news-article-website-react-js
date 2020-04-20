@@ -183,7 +183,7 @@ export default function CheckoutPage(props) {
                 <h2>Order Summary</h2>
                 <Grid container>
                     <Grid item md={6} md={6} sm={6} xs={6}>
-                        <h3>Comic Boxer for Us customers</h3>
+                        <h3>{Headings[parseInt(props.match.params.key)]}</h3>
                     </Grid>
                     <Grid item md={6} md={6} sm={6} xs={6}>
                     <h3>{displayPrices[parseInt(props.match.params.key)]}</h3>
