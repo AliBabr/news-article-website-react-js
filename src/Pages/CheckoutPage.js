@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
     },
     textFieldsSmall:
     {
-      width:'95%',
+      width:'85%',
       marginTop:'15px',
       height:'30px',
       paddingLeft:'15px',
@@ -135,8 +135,19 @@ const useStyles = makeStyles((theme) => ({
         borderRadius:'5px',
         border:'unset'
       },
+      buttonsSmall:{
+        backgroundColor:"#000745",
+        fontWeight:'700',
+        height:'37px',
+        marginBottom:'25px',
+        marginTop:"25px",
+        width:'88%',
+        color:'white',
+        borderRadius:'5px',
+        border:'unset'
+      },
       selectSmall:{
-        width:'97%',
+        width:'89%',
         marginTop:'15px',
         height:'30px',
         paddingLeft:'15px',
@@ -173,7 +184,7 @@ export default function CheckoutPage(props) {
     const perMonth = ['$30','$28.50','$27']
     const classes = useStyles();
     return (
-        <div  className="homepageSubscription">
+        <div  className="homepageSubscription" style={{textAlign:"center"}}>
             {/* <Header></Header> */}
             <Grid container spacing={2} justify="center">
                 <Grid item xs={12} sm={12} md={1} lg={1} xl={1}>
@@ -315,7 +326,7 @@ export default function CheckoutPage(props) {
                                 <input placeholder="Password" type="password" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={6} md={6} sm={12} xs={12} >
-                                <input className={classes.buttons} type="submit" value="Checkout"/>
+                                <input className={`${useWindowSize()[0]>=960?classes.buttons:classes.buttonsSmall}`} type="submit" value="Checkout"/>
                                 </Grid>
                     </Grid>
                 </Grid>

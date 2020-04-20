@@ -98,7 +98,9 @@ body{
   margin: 5px;
   height:37px !important;
 }
-
+a{
+  text-decoration: none !important;
+}
 .checkoutButtonSub span{
   background:#e80644 !important;
   display: none !important;
