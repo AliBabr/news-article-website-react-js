@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     },
     textFieldEmail:
     {
-      width:'90%',
+      width:'88%',
       height:'37px',
       paddingLeft:'15px',
       border:'unset',
@@ -151,8 +151,8 @@ export default function Login( props) {
                   aria-describedby="alert-dialog-description"
                 >
                   <DialogTitle style={{paddingBottom:"0px"}} id="alert-dialog-title">
-                    <h6 style={{fontFamily:"poppins",fontWeight:"200",paddingBottom:'-5px'}}>
-                      Please enter your E-mail address and we'll send you a link to reset your password</h6></DialogTitle>
+                    <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'280px', textAlign:'justify', paddingBottom:'-5px'}}>
+                      Please enter your e-mail address and we'll send you a link to reset your password</h6></DialogTitle>
                   <input onChange={handleEmail} type="email" className={classes.textFieldEmail}/>
                   <DialogActions>
                     <Button onClick={handleSmackBarOpen} color="primary" autoFocus>

@@ -113,6 +113,7 @@ export default function Subscription() {
     
     const classes = useStyles();
     const Headings =['1 Month Plan','3 Month Plan','6 Month Plan'];
+    const Keys =[0,1,2];
     const Prices =[30,85.50,162];
     const displayPrices =["$30","$85.50","$162"];
     return (
@@ -193,17 +194,17 @@ export default function Subscription() {
                         <Grid item lg={10} md={10} sm={10} xs={10} >
                             <Grid container>
                             <Grid item lg={4} md={6} sm={12} xs={12} >
-                            <PlanCard heading={Headings[0]} price={Prices[0]} displayPrice={displayPrices[0]} />
+                            <PlanCard heading={Headings[0]} Keys={Keys[0]} price={Prices[0]} displayPrice={displayPrices[0]} />
                             </Grid>
                             <Grid item lg={4} md={6} sm={12} xs={12} >
-                                <PlanCard selected="*" heading={Headings[1]} price={Prices[1]} displayPrice={displayPrices[1]} />
+                                <PlanCard selected="*" Keys={Keys[1]} heading={Headings[1]} price={Prices[1]} displayPrice={displayPrices[1]} />
                             </Grid>
                             <Hidden only={['xs','lg','xl']}>
                             <Grid item lg={4} md={3} sm={12} xs={10} >
                             </Grid> 
                             </Hidden>
                             <Grid item lg={4} md={6} sm={12} xs={12} >
-                                <PlanCard heading={Headings[2]} price={Prices[2]} displayPrice={displayPrices[2]} />
+                                <PlanCard heading={Headings[2]} Keys={Keys[2]} price={Prices[2]} displayPrice={displayPrices[2]} />
                             </Grid> 
                             </Grid>
                         </Grid>

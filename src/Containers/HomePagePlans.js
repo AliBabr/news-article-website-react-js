@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function HomePagePlans(props) {
     const Prices =[30,85.50,162];
+    const Keys =[0,1,2];
     const displayPrices =["$30","$85.50","$162"];
     const classes = useStyles();
     const Headings =['1 Month Plan','3 Month Plan','6 Month Plan'];
@@ -58,7 +59,7 @@ export default function HomePagePlans(props) {
                         <Grid item lg={2} md={2} sm={12} xs={12}>
                         </Grid>
                         <Grid item lg={4} md={4} sm={12} xs={12}>
-                            <PlanCard viewWidth={props.viewWidth} heading={Headings[0]} price={Prices[0]} displayPrice={displayPrices[0]} />
+                            <PlanCard viewWidth={props.viewWidth} Keys={Keys[0]} heading={Headings[0]} price={Prices[0]} displayPrice={displayPrices[0]} />
                         </Grid>
                         <Grid item item lg={4} md={4} sm={12} xs={12}>
                             <p className="planList">
@@ -76,7 +77,7 @@ export default function HomePagePlans(props) {
                         <Grid item lg={2} md={2} sm={12} xs={12}>
                         </Grid>
                         <Grid item lg={4} md={4} sm={12} xs={12}>
-                            <PlanCard viewWidth={props.viewWidth}  heading={Headings[1]} price={Prices[1]} perMonth={monthlyAmount[0]} displayPrice={displayPrices[1]} />
+                            <PlanCard viewWidth={props.viewWidth} Keys={Keys[1]}  heading={Headings[1]} price={Prices[1]} perMonth={monthlyAmount[0]} displayPrice={displayPrices[1]} />
                         </Grid>
                         <Grid item item lg={4} md={4} sm={12} xs={12}>
                         <p className="planList">
@@ -94,7 +95,7 @@ export default function HomePagePlans(props) {
                         <Grid item lg={2} md={2} sm={12} xs={12}>
                         </Grid>
                         <Grid item lg={4} md={4} sm={12} xs={12}>
-                            <PlanCard viewWidth={props.viewWidth}  heading={Headings[2]} price={Prices[2]} perMonth={monthlyAmount[1]} displayPrice={displayPrices[2]}/>
+                            <PlanCard viewWidth={props.viewWidth} Keys={Keys[2]}  heading={Headings[2]} price={Prices[2]} perMonth={monthlyAmount[1]} displayPrice={displayPrices[2]}/>
                         </Grid>
                         <Grid item item lg={4} md={4} sm={12} xs={12}>
                         <p className="planList">

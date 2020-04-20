@@ -6,6 +6,13 @@ import Button from '@material-ui/core/Button';
 import axios from "axios";
 import { toast } from "react-toastify";
 import StripeCheckout from "react-stripe-checkout";
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import Caution from "../images/warning.jpg";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -66,6 +73,26 @@ const useStyles = makeStyles((theme) => ({
         marginTop:"5px",
         marginBottom:"6px"
     },
+    buttonsDialog:{
+      backgroundImage: "linear-gradient(to right, #04104e, #890103)",
+      fontWeight:'700',
+      height:'37px',
+      marginBottom:'15px',
+      width:'250px',
+      color:'white',
+      borderRadius:'5px',
+      border:'unset'
+    },
+    buttonsDialogSmall:{
+      backgroundImage: "linear-gradient(to right, #04104e, #890103)",
+      fontWeight:'700',
+      height:'37px',
+      marginBottom:'15px',
+      width:'200px',
+      color:'white',
+      borderRadius:'5px',
+      border:'unset'
+    },
     innerPaperLeftText:{
         fontSize:'14pt',
         fontWeight:'700',
@@ -87,8 +114,18 @@ const useStyles = makeStyles((theme) => ({
     return size;
   }
 
-export default function PlanCards(props) {
 
+
+  
+
+export default function PlanCards(props) {
+  console.log(props)
+  const [openNo, setOpenNo] = useState("");
+  const [selected,setSelected] = useState(props.selected)
+  const [openYes, setOpenYes] = useState("");
+  const [msg, setMsg] = useState("");
+  const [open, setOpen] = React.useState(false);
+  const [openSmackBar, setOpenSmackBar] = React.useState(false);
   const [gameChecked, setGameCheck] = useState(true);
   const [checkCount, setCheckCount] = useState(3);
   const [animeChecked, setAnimeCheck] = useState(true);
@@ -113,6 +150,31 @@ export default function PlanCards(props) {
     }
   }
 
+  const handleCloseYes = () => {
+    setOpenYes(false);
+  };
+
+  const handleOpenYes = () => {
+    setOpen(false);
+    setSelected(null);
+    setOpenYes(true);
+  };
+
+  const handleOpenNo = () => {
+    setOpen(false);
+  };
+
+const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
   function handleGameClick()
       {
         if(gameChecked==false)
@@ -152,13 +214,20 @@ export default function PlanCards(props) {
           setCheckCount(checkCount-1)
         }
       }
+      const handleSmackBarOpen = () => {
+        setMsg("Enter E-mail Again");
+        setOpenSmackBar(true);
+      };
+      const handleSmackBarClose=()=>{
+        setOpenSmackBar(false);
+      }
   
     console.log("The window is resizing",useWindowSize()[0])
     const classes = useStyles();
     return (
         <div>
             <Paper elevation={2} className={useWindowSize()[0]>=960?classes.paper:classes.paperSmall} >
-                <h1 className={classes.headerText}>{props.selected!=null?props.selected+props.heading:props.heading}</h1>
+                <h1 className={classes.headerText}>{selected!=null?props.selected+props.heading:props.heading}</h1>
             <Paper elevation={2} className={classes.innerPaper} >
             <Grid container spacing={2} justify="center">
                 <Grid item lg={6} md={6} sm={6} xs={6} >
@@ -181,21 +250,95 @@ export default function PlanCards(props) {
                 <Grid item lg={6} md={6} sm={6} xs={6} >
                     <h1 className={classes.headerPrice}>{props.displayPrice}</h1>
                     {
-                      props.selected!=null?<Button style={{textTransform:'initial'}} className={classes.buttons} variant="contained" color="primary">
+                      props.selected!=null && selected!=null?<Button style={{textTransform:'initial'}} className={classes.buttons} onClick={handleClick} variant="contained" color="primary">
                         Cancel
                     </Button>:
-                    <StripeCheckout
-                    className={"checkoutButtonSub"}
-                    stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
-                    amount={product.price * 100}
-                    name="Subscription"
-                    billingAddress
-                    shippingAddress
-                />
+                    <a href={`/checkout/${props.Keys}`}><Button style={{textTransform:'initial'}} className={"customButton"} variant="contained" color="primary">
+                    Select
+                </Button></a>
+                //     <StripeCheckout
+                //     className={"checkoutButtonSub"}
+                //     stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
+                //     amount={product.price * 100}
+                //     name="Subscription"
+                //     billingAddress
+                //     shippingAddress
+                // />
                     }
                     
                     
                 </Grid>
+                <Dialog
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogTitle style={{paddingBottom:"0px"}} id="alert-dialog-title">
+                    <div style={{textAlign:'center'}}>
+                    <img src={Caution} style={{height:"130px",width:'130px'}}></img>
+                    </div>
+                    <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'justify', paddingBottom:'-5px'}}>
+                     Are you sure you wnat to cancel you monthly blast of Awesomeness?</h6></DialogTitle>
+                  <DialogActions>
+                  <input 
+                    className={props.viewWidth>=450?classes.buttonsDialog:classes.buttonsDialogSmall} 
+                    value="Yes, Cancel Subscription"
+                    onClick={handleOpenYes}
+                     type="button"></input>
+                  <input 
+                    className={props.viewWidth>=450?classes.buttonsDialog:classes.buttonsDialogSmall} 
+                    onClick={handleOpenNo}
+                    value="No Keep it going" 
+                    type="button"></input>
+                  </DialogActions>
+                </Dialog>
+
+                <Dialog
+                  open={openYes}
+                  onClose={handleCloseYes}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogTitle style={{paddingBottom:"0px"}} id="alert-dialog-title">
+                    {/* <div style={{textAlign:'center'}}>
+                    <img src={Caution} style={{height:"130px",width:'130px'}}></img>
+                    </div> */}
+                    <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'justify', paddingBottom:'-5px'}}>
+                     Subscription cancelled successfully. We Are Sorry to see you go</h6></DialogTitle>
+                  <DialogActions>
+                    {/* <div style={{textAlign:'center'}}>
+                      <input 
+                    className={classes.buttonsDialog}
+                    value="Close"
+                    style={{width:'100%'}}
+                    onClick={handleCloseYes}
+                    type="button"></input>
+                    </div> */}
+                  
+                  </DialogActions>
+                </Dialog>
+                        {/* <Button className={props.viewWidth>=450?classes.forgotPassword:classes.forgotPasswordSmall} onClick={handleClick}>Forgot Password</Button> */}
+                <Snackbar
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  open={openSmackBar}
+                  autoHideDuration={6000}
+                  onClose={handleSmackBarClose}
+                  message={msg}
+                  action={
+                    <React.Fragment>
+                      <Button color="secondary" size="small" onClick={handleSmackBarClose}>
+                        UNDO
+                      </Button>
+                      <IconButton size="small" aria-label="close" color="inherit" onClick={handleSmackBarClose}>
+                        <CloseIcon fontSize="small" />
+                      </IconButton>
+                    </React.Fragment>
+                  }
+                />
             </Grid>
             </Paper>
             </Paper>
