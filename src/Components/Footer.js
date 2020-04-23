@@ -46,7 +46,7 @@ export default function Footer(props) {
                         <p>Greenwood Village CO 80112</p>
                         <p>astropowerbox@gmail.com</p>
                         <p>(720)-239-2382</p>
-                        <a href="#"><p>Terms of Service</p></a>
+                        <a  href="#"><p>Terms of Service</p></a>
                         <a href="#"><p>Privacy Policy</p></a>
                     </div>
                 </Grid>
