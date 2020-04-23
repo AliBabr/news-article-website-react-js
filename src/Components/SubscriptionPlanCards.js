@@ -279,7 +279,7 @@ const handleClick = () => {
                     <img src={Caution} style={{height:"130px",width:'130px'}}></img>
                     </div>
                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'justify', paddingBottom:'-5px'}}>
-                     Are you sure you wnat to cancel you monthly blast of Awesomeness?</h6></DialogTitle>
+                     Are you sure you want to cancel you monthly blast of Awesomeness?</h6></DialogTitle>
                   <DialogActions>
                   <input 
                     className={props.viewWidth>=450?classes.buttonsDialog:classes.buttonsDialogSmall} 
@@ -305,7 +305,7 @@ const handleClick = () => {
                     <img src={Caution} style={{height:"130px",width:'130px'}}></img>
                     </div> */}
                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'justify', paddingBottom:'-5px'}}>
-                     Subscription cancelled successfully. We Are Sorry to see you go</h6></DialogTitle>
+                     Subscription cancelled successfully. We are sorry to see you go!</h6></DialogTitle>
                   <DialogActions>
                     {/* <div style={{textAlign:'center'}}>
                       <input 

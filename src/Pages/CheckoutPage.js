@@ -181,7 +181,10 @@ export default function CheckoutPage(props) {
     const Keys =['0','1','2'];
     const Prices =[30,85.50,162];
     const displayPrices =["$30","$85.50","$162"];
-    const perMonth = ['$30','$28.50','$27']
+    const perMonth = ['$30','$28.50','$27'];
+    const plan = ['Month to Month Plan @',"3 month Repay Plan @","6 month Repay Plan @"]
+    const deliveries = ['1','3','6']
+    const deliveriesEnglish =['delivery','deliveries','deliveries']
     const classes = useStyles();
     return (
         <div  className="homepageSubscription" style={{textAlign:"center"}}>
@@ -200,13 +203,13 @@ export default function CheckoutPage(props) {
                     <h3>{displayPrices[parseInt(props.match.params.key)]}</h3>
                     </Grid>
                     <Grid item md={6} md={6} sm={6} xs={6}>
-                        <p>Month to Month Plan @ {perMonth[props.match.params.key]}/mo</p>
+                        <p>{plan[props.match.params.key]} {perMonth[props.match.params.key]}/mo</p>
                     </Grid>
                     <Grid item md={6} md={6} sm={6} xs={6}>
                     <h3></h3>
                     </Grid>
                     <Grid item md={6} md={6} sm={6} xs={6}>
-                        <p>Auto Renewing</p>
+                        <p>{deliveries[parseInt(props.match.params.key)]} {deliveriesEnglish[parseInt(props.match.params.key)]} auto-renewing</p>
                     </Grid>
                     <Grid item md={6} md={6} sm={6} xs={6}>
                     <h3></h3>
@@ -229,6 +232,9 @@ export default function CheckoutPage(props) {
                     <Grid item md={6} md={6} sm={6} xs={6}>
                     <h1>{displayPrices[parseInt(props.match.params.key)]}</h1>
                     </Grid>
+                    <Grid item lg={6} md={6} sm={12} xs={12} >
+                        <input placeholder="Gift Code" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                    </Grid>
                 </Grid>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
@@ -236,7 +242,7 @@ export default function CheckoutPage(props) {
                                 <Grid item lg={7} md={7} sm={12} xs={12} >
                                     <p style={{marginTop:"8%"}}></p>
                                     <PaypalButton style={{marginTop:"5%"}} ></PaypalButton>
-                                    <p  className={classes.labels} style={{marginTop:"15%"}} >Shipping Adress</p>
+                                    <p  className={classes.labels} style={{marginTop:"15%"}} >Shipping Address</p>
                                 </Grid>
                                 
                                 <Grid item lg={6} md={6} sm={12} xs={12} >
@@ -327,6 +333,9 @@ export default function CheckoutPage(props) {
                                 </Grid>
                                 <Grid item lg={6} md={6} sm={12} xs={12} >
                                 <input className={`${useWindowSize()[0]>=960?classes.buttons:classes.buttonsSmall}`} type="submit" value="Checkout"/>
+                                </Grid>
+                                <Grid item md={12} md={12} sm={12} xs={12}>
+                                    <p>By clicking 'Checkout' you are agreeing to our Terms of Service</p>
                                 </Grid>
                     </Grid>
                 </Grid>

@@ -62,10 +62,10 @@ const useStyles = makeStyles((theme) => ({
     },
     headerPrice:{
         color:'white',
-        fontSize:"25pt",
+        fontSize:"27pt",
         fontWeight:'600',
         margin:'unset',
-        marginTop:"-8px",
+        marginTop:"12px",
         marginBottom:"6px"
     },
     innerPaperLeftText:{
@@ -165,7 +165,7 @@ export default function PlanCards(props) {
                 </Grid>
                 <Grid item lg={6} md={6} sm={6} xs={6} >
                     <h1 style={{letterSpacing:'0.1em'}} className={classes.headerPrice}>{props.displayPrice}</h1>
-                    <p style={{margin:"0px",marginTop:"-13px",color:"white",fontSize:"10pt"}}>{props.perMonth}</p>
+                    <p style={{margin:"0px",marginTop:"-8px",color:"white",fontSize:"10pt"}}>{props.perMonth}</p>
                     {/* <StripeCheckout
                         className={"checkoutButton"}
                         stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
@@ -180,10 +180,6 @@ export default function PlanCards(props) {
                         Select
                     </Button>
                     </a>
-                    
-                    <Button style={{textTransform:'initial'}} className={"customButton"} variant="contained" color="primary">
-                        Give As Gift
-                    </Button>
                 </Grid>
             </Grid>
             </Paper>
