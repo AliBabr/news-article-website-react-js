@@ -136,19 +136,6 @@ export default function PlanCards(props) {
     description: "News Plan"
   });
 
-  async function handleToken(token, addresses) {
-    const response = await axios.post(
-      "https://ry7v05l6on.sse.codesandbox.io/checkout",
-      { token, product }
-    );
-    const { status } = response.data;
-    console.log("Response:", response.data);
-    if (status === "success") {
-      toast("Success! Check email for details", { type: "success" });
-    } else {
-      toast("Something went wrong", { type: "error" });
-    }
-  }
 
   const handleCloseYes = () => {
     setOpenYes(false);
@@ -279,15 +266,15 @@ const handleClick = () => {
                     <img src={Caution} style={{height:"130px",width:'130px'}}></img>
                     </div>
                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'justify', paddingBottom:'-5px'}}>
-                     Are you sure you want to cancel you monthly blast of Awesomeness?</h6></DialogTitle>
+                     Are you sure you want to cancel your monthly blast of Awesomeness?</h6></DialogTitle>
                   <DialogActions>
                   <input 
-                    className={props.viewWidth>=450?classes.buttonsDialog:classes.buttonsDialogSmall} 
+                    className={useWindowSize()[0]>=450?classes.buttonsDialog:classes.buttonsDialogSmall} 
                     value="Yes, Cancel Subscription"
                     onClick={handleOpenYes}
                      type="button"></input>
                   <input 
-                    className={props.viewWidth>=450?classes.buttonsDialog:classes.buttonsDialogSmall} 
+                    className={useWindowSize()[0]>=450?classes.buttonsDialog:classes.buttonsDialogSmall} 
                     onClick={handleOpenNo}
                     value="No Keep it going" 
                     type="button"></input>

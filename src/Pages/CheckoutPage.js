@@ -182,7 +182,7 @@ export default function CheckoutPage(props) {
     const Prices =[30,85.50,162];
     const displayPrices =["$30","$85.50","$162"];
     const perMonth = ['$30','$28.50','$27'];
-    const plan = ['Month to Month Plan @',"3 month Repay Plan @","6 month Repay Plan @"]
+    const plan = ['Month to Month Plan @',"3 month Prepay Plan @","6 month Prepay Plan @"]
     const deliveries = ['1','3','6']
     const deliveriesEnglish =['delivery','deliveries','deliveries']
     const classes = useStyles();
@@ -233,7 +233,7 @@ export default function CheckoutPage(props) {
                     <h1>{displayPrices[parseInt(props.match.params.key)]}</h1>
                     </Grid>
                     <Grid item lg={6} md={6} sm={12} xs={12} >
-                        <input placeholder="Gift Code" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                        <input placeholder="COUPON OR GIFT CODE" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                     </Grid>
                 </Grid>
                 </Grid>
