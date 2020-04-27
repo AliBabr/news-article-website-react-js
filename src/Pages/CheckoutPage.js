@@ -1,18 +1,15 @@
 import React ,{ useLayoutEffect, useState }  from 'react'
-import Header from '../Components/Header';
 import { makeStyles} from '@material-ui/core/styles';
-import {Hidden,TextField,Grid} from "@material-ui/core";
+import {Grid} from "@material-ui/core";
 import AstroBox from '../images/Astro Box-1.png';
+import Tick from '../images/tick.png';
 import CheckCards from '../images/checkCards.jpg'
 import PaypalButton from "../Components/PaypalButton";
-import CountrySelect from '../Components/CountrySelect';
-import Select from 'react-select'
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Caution from "../images/warning.jpg";
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-]
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -160,6 +157,26 @@ const useStyles = makeStyles((theme) => ({
     coverImageSmall:{
         marginLeft:'-15px',width:"400px"
     },
+    buttonsDialog:{
+        backgroundImage: "linear-gradient(to right, #04104e, #890103)",
+        fontWeight:'700',
+        height:'37px',
+        marginBottom:'15px',
+        width:'300px',
+        color:'white',
+        borderRadius:'5px',
+        border:'unset'
+      },
+      buttonsDialogSmall:{
+        backgroundImage: "linear-gradient(to right, #04104e, #890103)",
+        fontWeight:'700',
+        height:'37px',
+        marginBottom:'15px',
+        width:'100%',
+        color:'white',
+        borderRadius:'5px',
+        border:'unset'
+      },
   }));
   
   function useWindowSize() {
@@ -176,9 +193,24 @@ const useStyles = makeStyles((theme) => ({
   }
 
 export default function CheckoutPage(props) {
+    const [open, setOpen] = React.useState(false);
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        setOpen(false);
+    }
+    const handleClick = () => {
+        setOpen(true);
+      };
+
+
+
     console.log(props)
     const Headings =['1 Month Plan','3 Month Plan','6 Month Plan'];
     const Keys =['0','1','2'];
+    const orderId = '12345';
     const Prices =[30,85.50,162];
     const displayPrices =["$30","$85.50","$162"];
     const perMonth = ['$30','$28.50','$27'];
@@ -332,7 +364,7 @@ export default function CheckoutPage(props) {
                                 <input placeholder="Password" type="password" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={6} md={6} sm={12} xs={12} >
-                                <input className={`${useWindowSize()[0]>=960?classes.buttons:classes.buttonsSmall}`} type="submit" value="Checkout"/>
+                                <input className={`${useWindowSize()[0]>=960?classes.buttons:classes.buttonsSmall}`} onClick={handleClick} type="submit" value="Checkout"/>
                                 </Grid>
                                 <Grid item md={12} md={12} sm={12} xs={12}>
                                     <p>By clicking 'Checkout' you are agreeing to our Terms of Service</p>
@@ -342,60 +374,52 @@ export default function CheckoutPage(props) {
                 <Grid item xs={12} sm={12} md={1} lg={1} xl={1}>
                 </Grid>
             </Grid>
-            {/* <Grid container spacing={2} justify="center">
-                <Grid item lg={12} md={12} sm={12} xs={12} >
-                    <Grid container spacing={2} justify="center">
-                        <Grid item lg={10} md={10} sm={10} xs={10} >
-                            <Grid container>
-                                <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <img src={AstroBox}  className={useWindowSize()[0]>=960?classes.coverImage:classes.coverImageSmall}></img>
-                                </Grid>
-                                <Grid item lg={7} md={7} sm={12} xs={12} >
-                                    <p style={{marginTop:"8%"}}></p>
-                                    <PaypalButton style={{marginTop:"5%"}} ></PaypalButton>
-                                <p  className={classes.labels} style={{marginTop:"15%"}} >Shipping Adress</p>
-                                    <input placeholder="First Name" className={useWindowSize()[0]>=960?classes.textFieldsDual:classes.textFieldsDualSmall}/>
-                                    <input placeholder="Last Name" className={useWindowSize()[0]>=960?classes.textFieldsDual:classes.textFieldsDualSmall}/>
-                                </Grid>
+            <Dialog
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogTitle style={{paddingBottom:"0px"}} id="alert-dialog-title">
+                    <div style={{textAlign:'center'}}>
+                    <img src={Tick} style={{height:"130px",width:'130px'}}></img>
+                    </div>
+                    <h2 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', paddingBottom:'-5px'}}>
+                     Thank You!
+                     </h2>
+                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                     Your Subscription has been setup and your Power Box is on it's way
+                     </h6>
+                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                     Order Number:
+                     </h6>
+                     <div style={{width:"150px",marginLeft:"auto",marginRight:'auto'}}>
+                         <h2 style={{fontFamily:"poppins",color:"white",backgroundColor:'gray',width:'50px', fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                        {orderId}
+                        </h2>
+                     </div>
+                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                     You will receive an e-mail shortly with your order details
+                     </h6>
+                     <div style={{width:"300px",marginLeft:"auto",marginRight:'auto'}}>
+                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                     Please Note:All boxes will be renewed on the 15th of every month
+                     </h6>
+                     </div>
+                     
 
-                                <Grid item lg={5} md={5} sm={12} xs={12} >
-                                    <input placeholder="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
-                                </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={12} >
-                                    <input placeholder="Street Address" style={{width:'93%'}} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
-                                </Grid>
-                                <Grid item lg={2} md={2} sm={12} xs={12} >
-                                    <input placeholder="Apt/Unit" style={{width:'57%'}} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
-                                </Grid>
-
-
-                                <Grid item lg={5} md={5} sm={12} xs={12} >
-                                    <input placeholder="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
-                                </Grid>
-                                <Grid item lg={2} md={2} sm={12} xs={12} >
-                                    <input placeholder="City" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
-                                </Grid>
-                                <Grid item lg={3} md={3} sm={12} xs={12} >
-                                    <input placeholder="Select Province" style={{width:'88.5%'}}  className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
-                                </Grid>
-                                <Grid item lg={2} md={2} sm={12} xs={12} >
-                                    <input placeholder="Postal Code" style={{width:'57%'}} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
-                                </Grid>
-
-                                <Grid item lg={5} md={5} sm={12} xs={12} >
-                                    <input placeholder="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
-                                </Grid>
-                                <Grid item lg={5} md={5} sm={12} xs={12} >
-                                    <input placeholder="Canada" style={{width:'93%'}} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
-                                </Grid>
-
-                            </Grid>
-                        </Grid>
-                    <Grid item lg={10} md={10} sm={10} xs={10} >
-                    </Grid>
-                    </Grid>
-                </Grid>
-            </Grid> */}
+                     </DialogTitle>
+                     
+                  <DialogActions>
+                  <div style={{width:"300px",marginLeft:"auto",marginRight:'auto'}}>
+                  <input 
+                    className={useWindowSize()[0]>=450?classes.buttonsDialog:classes.buttonsDialogSmall} 
+                    value="Continue"
+                    onClick={handleClose}
+                     type="button"></input>
+                    </div>
+                  </DialogActions>
+                </Dialog>
         </div>
     )
 }
