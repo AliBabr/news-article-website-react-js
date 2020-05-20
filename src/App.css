@@ -323,3 +323,18 @@ ul.uncheckmark li:after {
   width:'65vw';
   float:"right"
 }
+
+.set-border {
+  border: 1px solid black;
+}
+.buttonsSmall {
+  background-color: "#000745" !important;
+  font-weight:'700' !important;
+  height: '37px' !important;
+  margin-bottom: '25px';
+  margin-top: "25px";
+  width:'88%';
+  color: 'white';
+  border-radius:'5px';
+  border:'unset'
+}
