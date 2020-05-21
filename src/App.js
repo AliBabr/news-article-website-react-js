@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/login" component={Login}></Route>
         <Route exact path="/account" component={Subscription}></Route>
         <Route exact path="/checkout/:key" component={CheckoutPage}></Route>
-        <Route exact path="/stripe" component={Stripe}></Route>
+        <Route exact path="/stripe/:key" component={Stripe}></Route>
       </Switch>
       </BrowserRouter>
     </div>

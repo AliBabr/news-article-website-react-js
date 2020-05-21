@@ -271,7 +271,7 @@ function CardSection(props) {
       const handleCountryCodeChange = (e) => {
         props.handleCountry(e.target.value)
       };
-      // console.log(props)
+      console.log("KEY:::",props.key)
       const Headings =['1 Month Plan','3 Month Plan','6 Month Plan'];
       const Keys =['0','1','2'];
       const orderId = '12345';
@@ -282,7 +282,8 @@ function CardSection(props) {
       const deliveries = ['1','3','6']
       const deliveriesEnglish =['delivery','deliveries','deliveries']
       const classes = useStyles();
-
+      const key = localStorage.getItem('myData')
+      console.log("DATA:::", localStorage.getItem('myData'))
   return (
 
     <div  className="homepageSubscription" style={{textAlign:"center"}}>
@@ -295,19 +296,19 @@ function CardSection(props) {
                 <h2>Order Summary</h2>
                 <Grid container>
                     <Grid item md={6} md={6} sm={6} xs={6}>
-                        {/* <h3>{Headings[parseInt(props.match.params.key)]}</h3> */}
+                        <h3>{Headings[parseInt(key)]}</h3>
                     </Grid>
                     <Grid item md={6} md={6} sm={6} xs={6}>
-                    {/* <h3>{displayPrices[parseInt(props.match.params.key)]}</h3> */}
+                    <h3>{displayPrices[parseInt(key)]}</h3>
                     </Grid>
                     <Grid item md={6} md={6} sm={6} xs={6}>
-                        {/* <p>{plan[props.match.params.key]} {perMonth[props.match.params.key]}/mo</p> */}
+                        <p>{plan[key]} {perMonth[key]}/mo</p>
                     </Grid>
                     <Grid item md={6} md={6} sm={6} xs={6}>
                     <h3></h3>
                     </Grid>
                     <Grid item md={6} md={6} sm={6} xs={6}>
-                        {/* <p>{deliveries[parseInt(props.match.params.key)]} {deliveriesEnglish[parseInt(props.match.params.key)]} auto-renewing</p> */}
+                        <p>{deliveries[parseInt(key)]} {deliveriesEnglish[parseInt(key)]} auto-renewing</p>
                     </Grid>
                     <Grid item md={6} md={6} sm={6} xs={6}>
                     <h3></h3>
@@ -328,7 +329,7 @@ function CardSection(props) {
                         <h1>Total</h1>
                     </Grid>
                     <Grid item md={6} md={6} sm={6} xs={6}>
-                    {/* <h1>{displayPrices[parseInt(props.match.params.key)]}</h1> */}
+                    {/* <h1>{displayPrices[parseInt(key)]}</h1> */}
                     </Grid>
                     <Grid item lg={6} md={6} sm={12} xs={12} >
                         <input placeholder="COUPON OR GIFT CODE" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>

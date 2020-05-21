@@ -175,7 +175,7 @@ export default function PlanCards(props) {
                         shippingAddress
                     /> */}
 
-                   <a href={`/checkout/${props.Keys}`}> 
+                   <a href={`/stripe/${props.Keys}`}> 
                    <Button style={{textTransform:'initial'}} className={"customButton"} variant="contained" color="primary">
                         Select
                     </Button>
