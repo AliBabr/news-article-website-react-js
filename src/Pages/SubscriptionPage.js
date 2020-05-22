@@ -1,11 +1,15 @@
 import React ,{ useLayoutEffect, useState }  from 'react'
 import Cards from '../Components/Cards';
-import Header from '../Components/Header';
+import Head from '../Components/Head';
 import { makeStyles} from '@material-ui/core/styles';
 import {Hidden,TextField,Grid} from "@material-ui/core";
 import Background from '../images/backgroundold.png';
 import Paper from '@material-ui/core/Paper';
 import PlanCard from "../Components/SubscriptionPlanCards";
+import { Redirect } from 'react-router-dom';
+import { getToken, removeUserSession, setUserSession } from '../Components/Utils/Common';
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -111,14 +115,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Subscription() {
     
-    const classes = useStyles();
-    const Headings =['1 Month Plan','3 Month Plan','6 Month Plan'];
-    const Keys =[0,1,2];
-    const Prices =[30,85.50,162];
-    const displayPrices =["$30","$85.50","$162"];
+  const classes = useStyles();
+  const Headings =['1 Month Plan','3 Month Plan','6 Month Plan'];
+  const Keys =[0,1,2];
+  const Prices =[30,85.50,162];
+  const displayPrices =["$30","$85.50","$162"];
+  const token = getToken()
+  // if (token == null)
+  // {
+    if (token == null) {
+      window.location.assign('/')
+      
+    }
     return (
         <div style={{backgroundImage:`url(${Background})`}} className="homepageSubscription">
-            <Header></Header>
+            <Head></Head>
             <Grid container spacing={2} justify="center">
                 <Grid item lg={1} md={1} sm={10} xs={10} >
                 </Grid>
@@ -227,4 +238,8 @@ export default function Subscription() {
             </Grid>
         </div>
     )
+  // }
+  // else {
+  //   return <Redirect to="/" />
+  // }
 }

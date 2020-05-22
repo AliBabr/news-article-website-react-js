@@ -4,7 +4,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios'
-
+import history from './history';
 
 import { ElementsConsumer, CardElement } from "@stripe/react-stripe-js";
 
@@ -68,12 +68,9 @@ class CheckoutForm extends React.Component {
       formData.append("card_token", result.token.id)
 
       formData.append("apt", this.state.apt)
-      console.log(result.token);
-
+      
       axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/checkout' , data: formData }).then(response => {
         this.setState({loading: false})
-        debugger
-        this.props.history.push('/account');
         this.setState({email: ''})
         this.setState({password: ''})
         this.setState({city: ''})
@@ -86,8 +83,9 @@ class CheckoutForm extends React.Component {
         this.setState({postal_code: ''})
         this.setState({apt: ''})
         this.setState({saved: 'Sub Admin has been created successfully..!'})
+        history.push('/account');
+        window.location.reload(); 
       }).catch(error => {
-        debugger
         this.setState({saved: ''})
         this.setState({loading: false})      
         if (error.response.status === 400) this.setState({errors: error.response.data});

@@ -6,13 +6,13 @@ import Subscription from './Pages/SubscriptionPage';
 import StripeCheckout from "react-stripe-checkout";
 import CheckoutPage from './Pages/CheckoutPage';
 import Stripe from './Components/stripe'
-
+import history from './Components/history';
 import './App.css';
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter history={history}>
        <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login}></Route>
