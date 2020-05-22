@@ -5,7 +5,7 @@ import Login from "./Pages/LoginPage";
 import Subscription from './Pages/SubscriptionPage';
 import StripeCheckout from "react-stripe-checkout";
 import CheckoutPage from './Pages/CheckoutPage';
-import Stripe from './Components/stripe'
+import HomeCheckout from './Components/HomeCheckout'
 import history from './Components/history';
 import './App.css';
 
@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/login" component={Login}></Route>
         <Route exact path="/account" component={Subscription}></Route>
         <Route exact path="/checkout/:key" component={CheckoutPage}></Route>
-        <Route exact path="/stripe/:key" component={Stripe}></Route>
+        <Route exact path="/home-checkout/:key" component={HomeCheckout}></Route>
       </Switch>
       </BrowserRouter>
     </div>

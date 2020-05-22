@@ -421,53 +421,7 @@ function CardSection(props) {
                 <Grid item xs={12} sm={12} md={1} lg={1} xl={1}>
                 </Grid>
             </Grid>
-            <Dialog
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="alert-dialog-title"
-                  aria-describedby="alert-dialog-description"
-                >
-                  <DialogTitle style={{paddingBottom:"0px"}} id="alert-dialog-title">
-                    <div style={{textAlign:'center'}}>
-                    <img src={Tick} style={{height:"130px",width:'130px'}}></img>
-                    </div>
-                    <h2 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', paddingBottom:'-5px'}}>
-                     Thank You!
-                     </h2>
-                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
-                     Your Subscription has been setup and your Power Box is on it's way
-                     </h6>
-                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
-                     Order Number:
-                     </h6>
-                     <div style={{width:"150px",marginLeft:"auto",marginRight:'auto'}}>
-                         <h2 style={{fontFamily:"poppins",color:"white",backgroundColor:'gray',width:'50px', fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
-                        {orderId}
-                        </h2>
-                     </div>
-                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
-                     You will receive an e-mail shortly with your order details
-                     </h6>
-                     <div style={{width:"300px",marginLeft:"auto",marginRight:'auto'}}>
-                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
-                     Please Note:All boxes will be renewed on the 15th of every month
-                     </h6>
-                     </div>
-                     
-
-                     </DialogTitle>
-                     
-                  <DialogActions>
-                  <div style={{width:"300px",marginLeft:"auto",marginRight:'auto'}}>
-                  <input 
-                    className={useWindowSize()[0]>=450?classes.buttonsDialog:classes.buttonsDialogSmall} 
-                    value="Continue"
-                    onClick={handleClose}
-                     type="button"></input>
-                    </div>
-                  </DialogActions>
-                </Dialog>
-
+            
 
         </div>
   );

@@ -338,3 +338,14 @@ ul.uncheckmark li:after {
   border-radius:'5px';
   border:'unset'
 }
+
+.buttonsDialogSmall {
+  background-image: linear-gradient(to right, #04104e, #890103);
+  font-weight: 700;
+  height: 37px;
+  margin-bottom: 15px;
+  width: 100%;
+  color: white;
+  border-radius: 5px;
+  border: unset;
+}

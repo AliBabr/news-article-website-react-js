@@ -5,6 +5,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios'
 import history from './history';
+import Tick from '../images/tick.png';
+
 
 import { ElementsConsumer, CardElement } from "@stripe/react-stripe-js";
 
@@ -28,13 +30,28 @@ class CheckoutForm extends React.Component {
       substr: '',
       error:'',
       saved: '',
-      errors: []
+      errors: [],
+      open: false,
+      orderId: ''
     }
 
   }
+
+  handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    this.setState({open: false})
+    history.push('/');
+    window.location.reload();
+}
+ handleClick = () => {
+  this.setState({open: true})
+  };
   
   
   handleSubmit = async event => {
+    this.setState({loading: true})
     event.preventDefault();
     const key = localStorage.getItem('myData')
 
@@ -68,9 +85,11 @@ class CheckoutForm extends React.Component {
       formData.append("card_token", result.token.id)
 
       formData.append("apt", this.state.apt)
+
       
       axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/checkout' , data: formData }).then(response => {
         this.setState({loading: false})
+        this.setState({orderId: response.data.order_no})
         this.setState({email: ''})
         this.setState({password: ''})
         this.setState({city: ''})
@@ -83,8 +102,7 @@ class CheckoutForm extends React.Component {
         this.setState({postal_code: ''})
         this.setState({apt: ''})
         this.setState({saved: 'Sub Admin has been created successfully..!'})
-        history.push('/account');
-        window.location.reload(); 
+        this.setState({open: true}) 
       }).catch(error => {
         this.setState({saved: ''})
         this.setState({loading: false})      
@@ -167,12 +185,62 @@ class CheckoutForm extends React.Component {
             <Grid item lg={6} md={6} sm={12} xs={12} >
               </Grid>
               <Grid item lg={4} md={4} sm={12} xs={12} >
-              <input disabled={!this.props.stripe} className="btn-pay"  type="submit" value="Checkout"/>
+              <input value={this.state.loading ? 'Loading...' : 'Checkout'} disabled={!this.props.stripe} className="btn-pay"  type="submit" />
               </Grid>
           </Grid>
 
 
         </form>
+
+
+        
+        <Dialog
+                  open={this.state.open}
+                  onClose={this.handleClose}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogTitle style={{paddingBottom:"0px"}} id="alert-dialog-title">
+                    <div style={{textAlign:'center'}}>
+                    <img src={Tick} style={{height:"130px",width:'130px'}}></img>
+                    </div>
+                    <h2 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', paddingBottom:'-5px'}}>
+                     Thank You!
+                     </h2>
+                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                     Your Subscription has been setup and your Power Box is on it's way
+                     </h6>
+                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                     Order Number:
+                     </h6>
+                     <div style={{width:"150px",marginLeft:"auto",marginRight:'auto'}}>
+                         <h2 style={{fontFamily:"poppins",color:"white",backgroundColor:'gray',width:'50px', fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                        {this.state.orderId}
+                        </h2>
+                     </div>
+                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                     You will receive an e-mail shortly with your order details
+                     </h6>
+                     <div style={{width:"300px",marginLeft:"auto",marginRight:'auto'}}>
+                     <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                     Please Note:All boxes will be renewed on the 15th of every month
+                     </h6>
+                     </div>
+                     
+
+                     </DialogTitle>
+                     
+                  <DialogActions>
+                  <div style={{width:"300px",marginLeft:"auto",marginRight:'auto'}}>
+                  <input 
+                    className='buttonsDialogSmall' 
+                    value="Continue"
+                    onClick={this.handleClose}
+                     type="button"></input>
+                    </div>
+                  </DialogActions>
+                </Dialog>
+
       </div>
     );
   }
