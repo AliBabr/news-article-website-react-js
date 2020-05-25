@@ -6,11 +6,12 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios'
 import history from './history';
 import Tick from '../images/tick.png';
+import { getToken,getUser, removeUserSession, setUserSession } from '../Components/Utils/Common';
 
 
 import { ElementsConsumer, CardElement } from "@stripe/react-stripe-js";
 
-import CardSection from "./CardSection";
+import AccoutCardSection from "./AccoutCardSection";
 
 class CheckoutForm extends React.Component {
 
@@ -32,9 +33,22 @@ class CheckoutForm extends React.Component {
       saved: '',
       errors: [],
       open: false,
-      orderId: ''
+      orderId: '',
+      top: 0
     }
   }
+
+
+  componentDidMount() {
+    this.setImageSize()
+  }
+  setImageSize = () => {
+    if(window.innerWidth < 768) {
+        this.setState({top: 0})
+      } else {
+        this.setState({top: -200})
+      }  
+    }
 
   handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -47,6 +61,7 @@ class CheckoutForm extends React.Component {
  handleClick = () => {
   this.setState({open: true})
   };
+
   
   
   handleSubmit = async event => {
@@ -69,8 +84,7 @@ class CheckoutForm extends React.Component {
       {
         formData.append("profile_photo", this.state.profile_photo);
       }
-      formData.append("email", this.state.email)
-      formData.append("password", this.state.password)
+
       formData.append("first_name", this.state.first_name)
 
       formData.append("last_name", this.state.last_name)
@@ -160,7 +174,7 @@ class CheckoutForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <CardSection key={this.props.key} handleEmail={this.handleEmail} handlePassword={this.handlePassword} handleFirstName = {this.handleFirstName} handleLastName = {this.handleLastName}  handleAddress = {this.handleAddress} handleApt = {this.handleApt} handleCity = {this.handleCity} handeProvince = {this.handeProvince} handlePostalCode = {this.handlePostalCode} handleCountry = {this.handleCountry}   />
+          <AccoutCardSection key={this.props.key} handleEmail={this.handleEmail} handlePassword={this.handlePassword} handleFirstName = {this.handleFirstName} handleLastName = {this.handleLastName}  handleAddress = {this.handleAddress} handleApt = {this.handleApt} handleCity = {this.handleCity} handeProvince = {this.handeProvince} handlePostalCode = {this.handlePostalCode} handleCountry = {this.handleCountry}   />
 
           {this.state.errors.map((val, index) => 
             <div>
@@ -170,7 +184,7 @@ class CheckoutForm extends React.Component {
               </div>
             )}
 
-          <Grid container>
+          <Grid container style={{ marginTop: this.state.top }}  >
             <Grid item lg={6} md={6} sm={12} xs={12} >
               </Grid>
               <Grid item lg={4} md={4} sm={12} xs={12} >

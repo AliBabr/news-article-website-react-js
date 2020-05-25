@@ -6,6 +6,8 @@ import Subscription from './Pages/SubscriptionPage';
 import StripeCheckout from "react-stripe-checkout";
 import CheckoutPage from './Pages/CheckoutPage';
 import HomeCheckout from './Components/HomeCheckout'
+import AccountCheckout from './Components/AccountCheckout'
+
 import history from './Components/history';
 import './App.css';
 
@@ -19,6 +21,7 @@ function App() {
         <Route exact path="/account" component={Subscription}></Route>
         <Route exact path="/checkout/:key" component={CheckoutPage}></Route>
         <Route exact path="/home-checkout/:key" component={HomeCheckout}></Route>
+        <Route exact path="/account-checkout/:key" component={AccountCheckout}></Route>
       </Switch>
       </BrowserRouter>
     </div>

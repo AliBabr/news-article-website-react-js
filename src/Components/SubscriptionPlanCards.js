@@ -139,6 +139,7 @@ export default function PlanCards(props) {
   };
 
   const handleOpenYes = () => {
+    
     setOpen(false);
     setSelected(null);
     setOpenYes(true);
@@ -237,7 +238,7 @@ const handleClick = () => {
                       props.selected!=null && selected!=null?<Button style={{textTransform:'initial'}} className={classes.buttons} onClick={handleClick} variant="contained" color="primary">
                         Cancel
                     </Button>:
-                    <a href={`/checkout/${props.Keys}`}><Button style={{textTransform:'initial'}} className={"customButton"} variant="contained" color="primary">
+                    <a href={`/account-checkout/${props.Keys}`}><Button style={{textTransform:'initial'}} className={"customButton"} variant="contained" color="primary">
                     Select
                 </Button></a>
                 //     <StripeCheckout

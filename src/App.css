@@ -349,3 +349,13 @@ ul.uncheckmark li:after {
   border-radius: 5px;
   border: unset;
 }
+
+@media only screen and (min-width: 500px) {
+  
+  .footer
+  .column
+  .social-column-container
+  .logo {
+     background-color: red !important;
+  }
+} 

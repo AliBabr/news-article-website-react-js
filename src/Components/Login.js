@@ -11,7 +11,8 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import axios from 'axios'
 import * as EmailValidator from 'email-validator';
-import { getToken, removeUserSession, setUserSession } from './Utils/Common';
+// import { getToken, removeUserSession, setUserSession } from './Utils/Common';
+import { getToken,getUser, removeUserSession, setUserSession } from '../Components/Utils/Common';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -114,16 +115,17 @@ export default function Login( props) {
     {
       setEmail(e.target.value);
     }
-
+      
     function handleLogin(e)
     {
       e.preventDefault();
       axios.post(`https://news-article-system.herokuapp.com/api/v1/users/web_sign_in?email=${email}&password=${password}`).then(response => {
-        setUserSession(response.data.Authentication_Token, response.data);
+        setUserSession(response.data.user_deatails[0].Authentication, response.data.user_deatails[0]);
+        sessionStorage.setItem('subscription', JSON.stringify(response.data.subscriptions[0]));
+        localStorage.setItem('count', 1);
         window.location.assign('/account')
         sessionStorage.setItem('toogle', true);
       }).catch(error => {
-        // setLoading(false);
         if (error.response.status === 400) setError(error.response.data.message);
         else setError("Something went wrong. Please try again later.");
       });
