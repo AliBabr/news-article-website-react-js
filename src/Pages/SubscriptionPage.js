@@ -1,11 +1,17 @@
-import React ,{ useLayoutEffect, useState }  from 'react'
+import React ,{ useLayoutEffect, useState ,useEffect }  from 'react'
 import Cards from '../Components/Cards';
-import Header from '../Components/Header';
+import Head from '../Components/Head';
 import { makeStyles} from '@material-ui/core/styles';
 import {Hidden,TextField,Grid} from "@material-ui/core";
 import Background from '../images/backgroundold.png';
 import Paper from '@material-ui/core/Paper';
 import PlanCard from "../Components/SubscriptionPlanCards";
+import { Redirect } from 'react-router-dom';
+import axios from 'axios'
+import { getToken,getUser, removeUserSession, setUserSession } from '../Components/Utils/Common';
+import { keys } from '@material-ui/core/styles/createBreakpoints';
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -110,15 +116,101 @@ const useStyles = makeStyles((theme) => ({
   }
 
 export default function Subscription() {
+
+  const subs = getUser()
+  const [password, setPassword] = useState(null);
+
+  const [email, setEmail] = useState(subs.email);
+  const [city, setCity] = useState(subs.city);
+  const [state, setState] = React.useState(subs.state);
+  const [zipCode, SetzipCode] = React.useState(subs.zip_code);
+  const [firstName, setfirstName] = useState(subs.first_name);
+  const [lastName, SetlastName] = useState(subs.last_name);
+  const [address, setAddress] = useState(subs.street_address);
+  const [numberr, setNumberr] = useState(subs.plan_number);
+  const [error, setError] = useState('');
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value)
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value)
+  };
+
+  const handleFirstNameChange = (e) => {
+    setfirstName(e.target.value)
+  };
+
+  const handleLastNameChange = (e) => {
+    SetlastName(e.target.value)
+  };
+
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value)
+  };
+
+  const handleCityChange = (e) => {
+    setCity(e.target.value)
+  };
+  
+  const handleProvinceChange = (e) => {
+    setState(e.target.value)
+  };
+
+  const handleZipCodeChange = (e) => {
+    SetzipCode(e.target.value)
+  };
+  
+
+    function handleSubmit(e)
+    {
+        var formData = new FormData();
+
+        formData.append("email", email)
+
+        if (password != null && password != ''){
+          formData.append("password", password)
+        }
+
+        formData.append("first_name", firstName)
+  
+        formData.append("last_name", lastName)
+        formData.append("street_address", address)
+        formData.append("city", city)
+  
+        formData.append("state", state )
+        formData.append("zip_code", zipCode)
+  
+        const user = getUser()
+
+        axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/update_subscription', headers: {UUID: user.UUID, Authentication: user.Authentication} , data: formData }).then(response => {
+
+          setUserSession(response.data.user_deatails[0].Authentication, response.data.user_deatails[0]);
+        }).catch(error => {
+          this.setState({saved: ''})
+          this.setState({loading: false})      
+          if (error.response.status === 400) this.setState({errors: error.response.data});
+          else this.setState({error: "Something went wrong. Please try again later." });
+        });
+    }
+
     
-    const classes = useStyles();
-    const Headings =['1 Month Plan','3 Month Plan','6 Month Plan'];
-    const Keys =[0,1,2];
-    const Prices =[30,85.50,162];
-    const displayPrices =["$30","$85.50","$162"];
+  const classes = useStyles();
+  const Headings =['1 Month Plan','3 Month Plan','6 Month Plan'];
+  const Keys =[0,1,2];
+  const Prices =[30,85.50,162];
+  const displayPrices =["$30","$85.50","$162"];
+  const token = getToken()
+
+    if (token == null) {
+      window.location.assign('/')
+      
+    }
+
     return (
         <div style={{backgroundImage:`url(${Background})`}} className="homepageSubscription">
-            <Header></Header>
+            <Head></Head>
             <Grid container spacing={2} justify="center">
                 <Grid item lg={1} md={1} sm={10} xs={10} >
                 </Grid>
@@ -133,12 +225,12 @@ export default function Subscription() {
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Username (E-mail)</p>
-                                    <input value="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                <p  className={classes.labels}>First Name</p>
+                                    <input value={firstName} onChange={handleFirstNameChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Name</p>
-                                    <input value="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                <p  className={classes.labels}>Last Nmae</p>
+                                    <input value={lastName} onChange={handleLastNameChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid> 
@@ -147,19 +239,45 @@ export default function Subscription() {
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Password</p>
-                                <input type="password" value="Jhon" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                <p  className={classes.labels}>Email</p>
+                                <input value={email} onChange={handleEmailChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Phone#</p>
-                                    <input value="051-23232323" className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                <p  className={classes.labels}>Password</p>
+                                    <input type="password" onChange={handlePasswordChange} value={password} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                </Grid>
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
+                                </Grid>
+
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
+                                </Grid>
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
+                                <p  className={classes.labels}>City</p>
+                                <input value={city} onChange={handleCityChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                </Grid>
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
+                                <p  className={classes.labels}>Province</p>
+                                    <input value={state} onChange={handleProvinceChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                </Grid>
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
+                                </Grid> 
+
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
+                                </Grid>
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
+                                <p  className={classes.labels}>Streat Address</p>
+                                <input value={address} onChange={handleAddressChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                </Grid>
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
+                                <p  className={classes.labels}>Postal Code</p>
+                                    <input value={zipCode} onChange={handleZipCodeChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid> 
 
                                 {/* Third Row */}
 
-                                <Grid item lg={1} md={1} sm={12} xs={10} >
+                                {/* <Grid item lg={1} md={1} sm={12} xs={10} >
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Address</p>
@@ -170,14 +288,14 @@ export default function Subscription() {
                                     <textarea value="Jhons Account" className={useWindowSize()[0]>=960?classes.textAreas:classes.textAreasSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={10} >
-                                </Grid>
+                                </Grid> */}
 
                                 {/* Fourth Row */}
 
                                 <Grid item lg={3} md={3} sm={12} xs={10} >
                                 </Grid>
                                 <Grid item lg={6} md={6} sm={12} xs={12} >
-                                <input className={classes.buttonEdit} type="submit" value="Edit"/>
+                                <input className={classes.buttonEdit} onClick={handleSubmit}  type="submit" value="Update"/>
                                 </Grid>
                                 <Grid item lg={3} md={3} sm={12} xs={10} >
                                 </Grid>  
@@ -194,18 +312,41 @@ export default function Subscription() {
                         <Grid item lg={10} md={10} sm={10} xs={10} >
                             <Grid container>
                             <Grid item lg={4} md={6} sm={12} xs={12} >
-                            <PlanCard heading={Headings[0]} Keys={Keys[0]} price={Prices[0]} displayPrice={displayPrices[0]} />
+           
+                              {numberr == 0 ?
+                              <div>
+                                <PlanCard selected="*" heading={Headings[0]} Keys={Keys[0]} price={Prices[0]} displayPrice={displayPrices[0]} />
+                              </div>
+                              : 
+                              <PlanCard  heading={Headings[0]} Keys={0} price={Prices[0]} displayPrice={displayPrices[0]} />
+                              }
                             </Grid>
+                            
                             <Grid item lg={4} md={6} sm={12} xs={12} >
-                                <PlanCard selected="*" Keys={Keys[1]} heading={Headings[1]} price={Prices[1]} displayPrice={displayPrices[1]} />
+                              { numberr == 1 ?
+                              <div>
+                                <PlanCard selected="*" heading={Headings[1]} Keys={Keys[1]} price={Prices[1]} displayPrice={displayPrices[1]} />
+                              </div>
+                              : 
+                              // <h1> HEELO000000 </h1>
+
+                              <PlanCard  heading={Headings[1]} Keys={1} price={Prices[1]} displayPrice={displayPrices[1]} />
+                              }
                             </Grid>
-                            <Hidden only={['xs','lg','xl']}>
-                            <Grid item lg={4} md={3} sm={12} xs={10} >
-                            </Grid> 
-                            </Hidden>
+
+               
+
                             <Grid item lg={4} md={6} sm={12} xs={12} >
-                                <PlanCard heading={Headings[2]} Keys={Keys[2]} price={Prices[2]} displayPrice={displayPrices[2]} />
-                            </Grid> 
+                              {numberr == 2 ?   
+                              <div>
+                                <PlanCard selected="*" heading={Headings[2]} Keys={Keys[2]} price={Prices[2]} displayPrice={displayPrices[2]} />
+                              </div>
+                              : 
+
+                              <PlanCard  heading={Headings[2]} Keys={2} price={Prices[2]} displayPrice={displayPrices[2]} />
+                              }
+                            </Grid>
+
                             </Grid>
                         </Grid>
                         <Grid item lg={1} md={1} sm={10} xs={10} >
@@ -227,4 +368,8 @@ export default function Subscription() {
             </Grid>
         </div>
     )
+  // }
+  // else {
+  //   return <Redirect to="/" />
+  // }
 }

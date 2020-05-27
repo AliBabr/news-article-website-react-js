@@ -323,3 +323,39 @@ ul.uncheckmark li:after {
   width:'65vw';
   float:"right"
 }
+
+.set-border {
+  border: 1px solid black;
+}
+.buttonsSmall {
+  background-color: "#000745" !important;
+  font-weight:'700' !important;
+  height: '37px' !important;
+  margin-bottom: '25px';
+  margin-top: "25px";
+  width:'88%';
+  color: 'white';
+  border-radius:'5px';
+  border:'unset'
+}
+
+.buttonsDialogSmall {
+  background-image: linear-gradient(to right, #04104e, #890103);
+  font-weight: 700;
+  height: 37px;
+  margin-bottom: 15px;
+  width: 100%;
+  color: white;
+  border-radius: 5px;
+  border: unset;
+}
+
+@media only screen and (min-width: 500px) {
+  
+  .footer
+  .column
+  .social-column-container
+  .logo {
+     background-color: red !important;
+  }
+} 

@@ -9,13 +9,17 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import axios from 'axios'
 import * as EmailValidator from 'email-validator';
+// import { getToken, removeUserSession, setUserSession } from './Utils/Common';
+import { getToken,getUser, removeUserSession, setUserSession } from '../Components/Utils/Common';
+
 
 const useStyles = makeStyles((theme) => ({
     paper: {
       width:'100%',
-      height:350,
-        borderRadius:'20px',
+      // height:350,
+      borderRadius:'20px',
       backgroundColor:"white",
       color: theme.palette.text.secondary,
     },
@@ -82,7 +86,8 @@ export default function Login( props) {
   const [msg, setMsg] = useState("");
   const [open, setOpen] = React.useState(false);
   const [openSmackBar, setOpenSmackBar] = React.useState(false);
-
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const handleClick = () => {
     setOpen(true);
   };
@@ -99,6 +104,8 @@ export default function Login( props) {
     {
       console.log("it coming here")
       setUser(e.target.value);
+      setEmail(e.target.value);
+
     }
     function handlePassword(e)
     {
@@ -108,20 +115,36 @@ export default function Login( props) {
     {
       setEmail(e.target.value);
     }
+      
     function handleLogin(e)
     {
       e.preventDefault();
-      if(user=="jhon" && password =="jhon")
-      {
+      axios.post(`https://news-article-system.herokuapp.com/api/v1/users/web_sign_in?email=${email}&password=${password}`).then(response => {
+        setUserSession(response.data.user_deatails[0].Authentication, response.data.user_deatails[0]);
+        // sessionStorage.setItem('subscription', JSON.stringify(response.data.subscriptions[0]));
+        localStorage.setItem('count', 1);
         window.location.assign('/account')
-      }
+        sessionStorage.setItem('toogle', true);
+      }).catch(error => {
+        if (error.response.status === 400) setError(error.response.data.message);
+        else setError("Something went wrong. Please try again later.");
+      });
+
     }
 
   const handleSmackBarOpen = () => {
     if(email!="" && EmailValidator.validate(email))
     {
-      setOpen(false);
-      setMsg("E-mail Sent");
+      axios.post(`https://news-article-system.herokuapp.com/api/v1/users/forgot_password?email=${email}`).then(response => {
+        setOpen(false);
+        setMsg("E-mail Sent");
+      }).catch(error => {
+        setOpen(false);
+        setMsg("Invalid E-mail");
+        // if (error.response.status === 400) setError(error.response.data.message);
+        // else setError("Something went wrong. Please try again later.");
+
+      });
     }
     else
     {
@@ -132,11 +155,19 @@ export default function Login( props) {
   const handleSmackBarClose=()=>{
     setOpenSmackBar(false);
   }
+  const token = getToken()
+
+  if (token != null) {
+    window.location.assign('/account')
+    
+  }
+  
     return (
         <div>
             <Paper elevation={2} className={classes.paper} >
             <form noValidate>
-              <p style={{paddingTop:'30px'}} className={classes.labels} >Username (E-mail)</p>
+              {error && <><small style={{ color: 'red', marginLeft: '60px' }}>{error}</small></>}
+              <p style={{paddingTop:'30px'}} className={classes.labels} >Email</p>
               <input onChange={handleUser} value={user} className={classes.textFields}/>
               <p  className={classes.labels}>Password</p>
               <input  type="password" onChange={handlePassword} value={password}  className={classes.textFields}/>
@@ -181,6 +212,7 @@ export default function Login( props) {
                     </React.Fragment>
                   }
                 />
+
                         <input className={classes.buttons} onClick={handleLogin} type="submit" value="Login"/>
               </form>
             </Paper>
