@@ -332,7 +332,7 @@ function CardSection(props) {
       const handleCountryCodeChange = (e) => {
         props.handleCountry(e.target.value)
       };
-      console.log("KEY:::",props.key)
+
       const Headings =['1 Month Plan','3 Month Plan','6 Month Plan'];
       const Keys =['0','1','2'];
       const orderId = '12345';
@@ -344,8 +344,7 @@ function CardSection(props) {
       const deliveriesEnglish =['delivery','deliveries','deliveries']
       const classes = useStyles();
       const key = localStorage.getItem('key')
-      console.log("DATA:::", localStorage.getItem('key'))
-      console.log("DATA:::", localStorage.getItem('myData'))
+
   return (
 
     <div  className="homepageSubscription" style={{textAlign:"center"}}>

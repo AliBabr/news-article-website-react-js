@@ -110,48 +110,38 @@ class CheckoutForm extends React.Component {
   };
 
   handleEmail = (langValue) => {
-    console.log("langValue:::", langValue)
+
     this.setState({email: langValue})
   }
   handlePassword = (langValue) => {
-    console.log("langValue:::", langValue)
     this.setState({password: langValue})
   } 
   handleCity = (langValue) => {
     this.setState({city: langValue})
-    console.log("langValue:::", langValue)
   }
   handeProvince = (langValue) => {
     this.setState({province: langValue})
-    console.log("langValue:::", langValue)
   }
   handlePostalCode = (langValue) => {
     this.setState({postal_code: langValue})
-    console.log("langValue:::", langValue)
   } 
   handleApt = (langValue) => {
     this.setState({apt: langValue})
-    console.log("langValue:::", langValue)
   }
   handleCountry = (langValue) => {
     this.setState({country: langValue})
-    console.log("langValue:::", langValue)
   }
   handlePassword = (langValue) => {
     this.setState({password: langValue})
-    console.log("langValue:::", langValue)
   }
   handleFirstName = (langValue) => {
     this.setState({first_name: langValue})
-    console.log("langValue:::", langValue)
   }
   handleLastName = (langValue) => {
     this.setState({last_name: langValue})
-    console.log("langValue:::", langValue)
   }
   handleAddress = (langValue) => {
     this.setState({adderess: langValue})
-    console.log("langValue:::", langValue)
   }
 
   render() {

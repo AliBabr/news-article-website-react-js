@@ -24,7 +24,7 @@ export default class Main extends Component {
   }
 
   handleEmail = (langValue) => {
-    console.log("langValue:::", langValue)
+ 
   }
 
   render(){

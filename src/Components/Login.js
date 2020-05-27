@@ -135,8 +135,16 @@ export default function Login( props) {
   const handleSmackBarOpen = () => {
     if(email!="" && EmailValidator.validate(email))
     {
-      setOpen(false);
-      setMsg("E-mail Sent");
+      axios.post(`https://news-article-system.herokuapp.com/api/v1/users/forgot_password?email=${email}`).then(response => {
+        setOpen(false);
+        setMsg("E-mail Sent");
+      }).catch(error => {
+        setOpen(false);
+        setMsg("Invalid E-mail");
+        // if (error.response.status === 400) setError(error.response.data.message);
+        // else setError("Something went wrong. Please try again later.");
+
+      });
     }
     else
     {
