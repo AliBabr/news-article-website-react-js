@@ -121,7 +121,7 @@ export default function Login( props) {
       e.preventDefault();
       axios.post(`https://news-article-system.herokuapp.com/api/v1/users/web_sign_in?email=${email}&password=${password}`).then(response => {
         setUserSession(response.data.user_deatails[0].Authentication, response.data.user_deatails[0]);
-        sessionStorage.setItem('subscription', JSON.stringify(response.data.subscriptions[0]));
+        // sessionStorage.setItem('subscription', JSON.stringify(response.data.subscriptions[0]));
         localStorage.setItem('count', 1);
         window.location.assign('/account')
         sessionStorage.setItem('toogle', true);

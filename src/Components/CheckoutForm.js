@@ -85,10 +85,8 @@ class CheckoutForm extends React.Component {
 
       formData.append("apt", this.state.apt)
 
-      
-      axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/checkout' , data: formData }).then(response => {
-        this.setState({loading: false})
-        this.setState({orderId: response.data.order_no})
+      axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/checkout' , data: formData }).then(response => { 
+        this.setState({orderId: response.data.subscriptions[0].order_no})
         this.setState({email: ''})
         this.setState({password: ''})
         this.setState({city: ''})

@@ -28,7 +28,7 @@ export default class Main extends Component {
   }
 
   render(){
-    localStorage.setItem('myData', this.props.match.params.key);
+    localStorage.setItem('key', this.props.match.params.key);   
     return(
         <div className="App">
         <div className="product">

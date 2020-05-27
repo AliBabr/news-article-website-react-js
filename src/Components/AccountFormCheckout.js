@@ -16,16 +16,18 @@ import AccoutCardSection from "./AccoutCardSection";
 class CheckoutForm extends React.Component {
 
   constructor(props){
+    const subs = getUser()
+   
     super(props)
     this.state = {
-      first_name: '',
-      last_name: '',
-      province: '',
-      adderess: '',
-      postal_code: '',
-      apt: '',
-      city: '',
-      country: '',
+      first_name: subs.first_name,
+      last_name: subs.last_name,
+      province: subs.state,
+      adderess: subs.street_address,
+      postal_code: subs.zip_code,
+      apt: subs.apt,
+      city: subs.city,
+      country: subs.country,
       email: '',
       password: '',
       substr: '',
@@ -55,19 +57,17 @@ class CheckoutForm extends React.Component {
       return;
     }
     this.setState({open: false})
-    history.push('/');
+    history.push('/account');
     window.location.reload();
 }
  handleClick = () => {
   this.setState({open: true})
   };
-
-  
   
   handleSubmit = async event => {
     this.setState({loading: true})
     event.preventDefault();
-    const key = localStorage.getItem('myData')
+    const key = localStorage.getItem('key')
 
     const { stripe, elements } = this.props;
     if (!stripe || !elements) {
@@ -94,15 +94,17 @@ class CheckoutForm extends React.Component {
       formData.append("state", this.state.province)
       formData.append("zip_code", this.state.postal_code)
       formData.append("country", this.state.country)
-      formData.append("plan_id", parseInt(key))
+      formData.append("plan_id", key)
       formData.append("card_token", result.token.id)
 
       formData.append("apt", this.state.apt)
+      const user = getUser()
 
-      
-      axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/checkout' , data: formData }).then(response => {
+      axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/upgrade_subscription', headers: {UUID: user.UUID, Authentication: user.Authentication} , data: formData }).then(response => {
         this.setState({loading: false})
-        this.setState({orderId: response.data.order_no})
+        setUserSession(response.data.user_deatails[0].Authentication, response.data.user_deatails[0]);
+        
+        this.setState({orderId: response.data.subscriptions[0].order_no})
         this.setState({email: ''})
         this.setState({password: ''})
         this.setState({city: ''})

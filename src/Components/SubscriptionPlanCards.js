@@ -10,6 +10,9 @@ import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Caution from "../images/warning.jpg";
+import { getToken,getUser, removeUserSession, setUserSession } from '../Components/Utils/Common';
+import axios from 'axios'
+
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -111,10 +114,6 @@ const useStyles = makeStyles((theme) => ({
     return size;
   }
 
-
-
-  
-
 export default function PlanCards(props) {
   console.log(props)
   const [openNo, setOpenNo] = useState("");
@@ -136,13 +135,23 @@ export default function PlanCards(props) {
 
   const handleCloseYes = () => {
     setOpenYes(false);
+    window.location.reload();
   };
 
   const handleOpenYes = () => {
-    
-    setOpen(false);
-    setSelected(null);
-    setOpenYes(true);
+    const user = getUser()
+    axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/cancel_subscription', headers: {UUID: user.UUID, Authentication: user.Authentication} }).then(response => {
+      setUserSession(response.data.user_deatails[0].Authentication, response.data.user_deatails[0]);
+      setOpen(false);
+      setSelected(null);
+      setOpenYes(true);
+    }).catch(error => {     
+      this.setState({saved: ''})
+      this.setState({loading: false})      
+      if (error.response.status === 400) this.setState({errors: error.response.data});
+      else this.setState({error: "Something went wrong. Please try again later." });
+    });
+
   };
 
   const handleOpenNo = () => {

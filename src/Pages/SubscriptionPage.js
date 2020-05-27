@@ -116,9 +116,10 @@ const useStyles = makeStyles((theme) => ({
   }
 
 export default function Subscription() {
-  const userStr = sessionStorage.getItem('subscription')
-  var subs = JSON.parse(userStr);
-  const [password, setPassword] = useState("");
+
+  const subs = getUser()
+  const [password, setPassword] = useState(null);
+
   const [email, setEmail] = useState(subs.email);
   const [city, setCity] = useState(subs.city);
   const [state, setState] = React.useState(subs.state);
@@ -126,17 +127,15 @@ export default function Subscription() {
   const [firstName, setfirstName] = useState(subs.first_name);
   const [lastName, SetlastName] = useState(subs.last_name);
   const [address, setAddress] = useState(subs.street_address);
-  const [numberr, setNumberr] = useState(subs.plan_amount);
+  const [numberr, setNumberr] = useState(subs.plan_number);
   const [error, setError] = useState('');
 
-
   const handleEmailChange = (e) => {
-    console.log('email:::', e.target.value)
     setEmail(e.target.value)
   };
 
   const handlePasswordChange = (e) => {
-    setPassword(e.target.password)
+    setPassword(e.target.value)
   };
 
   const handleFirstNameChange = (e) => {
@@ -169,7 +168,11 @@ export default function Subscription() {
         var formData = new FormData();
 
         formData.append("email", email)
+
+        if (password != null && password != ''){
           formData.append("password", password)
+        }
+
         formData.append("first_name", firstName)
   
         formData.append("last_name", lastName)
@@ -180,9 +183,10 @@ export default function Subscription() {
         formData.append("zip_code", zipCode)
   
         const user = getUser()
+
         axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/update_subscription', headers: {UUID: user.UUID, Authentication: user.Authentication} , data: formData }).then(response => {
-          localStorage.setItem('count', 0);
-          sessionStorage.setItem('subscription', JSON.stringify(response.data));
+
+          setUserSession(response.data.user_deatails[0].Authentication, response.data.user_deatails[0]);
         }).catch(error => {
           this.setState({saved: ''})
           this.setState({loading: false})      
@@ -321,9 +325,11 @@ export default function Subscription() {
                             <Grid item lg={4} md={6} sm={12} xs={12} >
                               { numberr == 1 ?
                               <div>
-                              <PlanCard selected="*" heading={Headings[1]} Keys={Keys[1]} price={Prices[1]} displayPrice={displayPrices[1]} />
+                                <PlanCard selected="*" heading={Headings[1]} Keys={Keys[1]} price={Prices[1]} displayPrice={displayPrices[1]} />
                               </div>
                               : 
+                              // <h1> HEELO000000 </h1>
+
                               <PlanCard  heading={Headings[1]} Keys={1} price={Prices[1]} displayPrice={displayPrices[1]} />
                               }
                             </Grid>

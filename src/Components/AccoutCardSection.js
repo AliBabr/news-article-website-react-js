@@ -223,30 +223,33 @@ const useStyles = makeStyles((theme) => ({
 
 function CardSection(props) {
     const [open, setOpen] = React.useState(false);
-
+    const subs = getUser()
+  
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = React.useState('');
-    const [zipCode, SetzipCode] = React.useState('');
-    const [firstName, setfirstName] = useState("Name");
-    const [lastName, SetlastName] = useState('');
-    const [address, setAddress] = useState('');
-    const [numberr, setNumberr] = useState(null);
+    const [city, setCity] = useState(subs.city);
+    const [state, setState] = React.useState(subs.state);
+    const [zipCode, SetzipCode] = React.useState(subs.zip_code);
+    const [firstName, setfirstName] = useState(subs.first_name);
+    const [lastName, SetlastName] = useState(subs.last_name);
+    const [address, setAddress] = useState(subs.street_address);
+    const [numberr, setNumberr] = useState(subs.plan_number);
+    const [apt, setApt] = useState(subs.apt);
+
     const [error, setError] = useState('');
   
 
-    useEffect(() => {
-      // var value = localStorage.setItem('count', 0);
-      // var value = localStorage.getItem('count')
-      // localStorage.setItem('count', value + 1);
-      var value = localStorage.getItem('count')
+    // useEffect(() => {
+    //   // var value = localStorage.setItem('count', 0);
+    //   // var value = localStorage.getItem('count')
+    //   // localStorage.setItem('count', value + 1);
+    //   var value = localStorage.getItem('count')
   
-      getDetails()
-      if (value == 1)
-      {
-      }
-    });
+    //   getDetails()
+    //   if (value == 1)
+    //   {
+    //   }
+    // });
     
     function getDetails(e)
     
@@ -283,6 +286,7 @@ function CardSection(props) {
       };
 
       const handleEmailChange = (e) => {
+        
         props.handleEmail(e.target.value)
       };
 
@@ -292,30 +296,37 @@ function CardSection(props) {
 
       const handleFirstNameChange = (e) => {
         props.handleFirstName(e.target.value)
+        setfirstName(e.target.value)
       };
 
       const handleLastNameChange = (e) => {
         props.handleLastName(e.target.value)
+        SetlastName(e.target.value)
       };
 
       const handleAddressChange = (e) => {
         props.handleAddress(e.target.value)
+        setAddress(e.target.value)
       };
 
       const handleAptChange = (e) => {
         props.handleApt(e.target.value)
+        setApt(e.target.value)
       };
 
       const handleCityChange = (e) => {
         props.handleCity(e.target.value)
+        setCity(e.target.value)
       };
       
       const handleProvinceChange = (e) => {
         props.handeProvince(e.target.value)
+        setState(e.target.value)
       };
 
       const handlePostalCodeChange = (e) => {
         props.handlePostalCode(e.target.value)
+        SetzipCode(e.target.value)
       };
 
       const handleCountryCodeChange = (e) => {
@@ -332,7 +343,8 @@ function CardSection(props) {
       const deliveries = ['1','3','6']
       const deliveriesEnglish =['delivery','deliveries','deliveries']
       const classes = useStyles();
-      const key = localStorage.getItem('myData')
+      const key = localStorage.getItem('key')
+      console.log("DATA:::", localStorage.getItem('key'))
       console.log("DATA:::", localStorage.getItem('myData'))
   return (
 
@@ -398,24 +410,24 @@ function CardSection(props) {
                         <input placeholder="First Name" value={firstName} onChange={handleFirstNameChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                         </Grid>
                         <Grid item lg={6} md={6} sm={12} xs={12} >
-                            <input placeholder="Last Name" value="hello" onChange={handleLastNameChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                            <input placeholder="Last Name" value={lastName} onChange={handleLastNameChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                         </Grid>
                         
                         <Grid item lg={9} md={9} sm={12} xs={12} >
-                            <input placeholder="Street Address" onChange={handleAddressChange} className={useWindowSize()[0]>=960?classes.textFieldADDRESS:classes.textFieldsSmall}/>
+                            <input placeholder="Street Address" value={address} onChange={handleAddressChange} className={useWindowSize()[0]>=960?classes.textFieldADDRESS:classes.textFieldsSmall}/>
                         </Grid>
                         <Grid item lg={3} md={3} sm={12} xs={12} >
-                            <input placeholder="Apt/Unit" onChange={handleAptChange} className={useWindowSize()[0]>=960?classes.textFieldAPT:classes.textFieldsSmall}/>
+                            <input placeholder="Apt/Unit" value={apt} onChange={handleAptChange} className={useWindowSize()[0]>=960?classes.textFieldAPT:classes.textFieldsSmall}/>
                         </Grid>
 
                         <Grid item lg={3} md={3} sm={12} xs={12} >
-                            <input placeholder="City" onChange={handleCityChange} className={useWindowSize()[0]>=960?classes.textFieldCITY:classes.textFieldsSmall}/>
+                            <input placeholder="City" value={city} onChange={handleCityChange} className={useWindowSize()[0]>=960?classes.textFieldCITY:classes.textFieldsSmall}/>
                         </Grid>
                         <Grid item lg={6} md={6} sm={12} xs={12} >
-                            <input placeholder="Select Province" onChange={handleProvinceChange}  className={useWindowSize()[0]>=960?classes.textFieldProvice:classes.textFieldsSmall}/>
+                            <input placeholder="Select Province" value={state} onChange={handleProvinceChange}  className={useWindowSize()[0]>=960?classes.textFieldProvice:classes.textFieldsSmall}/>
                         </Grid>
                         <Grid item lg={3} md={3} sm={12} xs={12} >
-                            <input placeholder="Postal Code" onChange={handlePostalCodeChange} className={useWindowSize()[0]>=960?classes.textFieldAPT:classes.textFieldsSmall}/>
+                            <input placeholder="Postal Code" value={zipCode} onChange={handlePostalCodeChange} className={useWindowSize()[0]>=960?classes.textFieldAPT:classes.textFieldsSmall}/>
                         </Grid>
 
                         <Grid item lg={12} md={12} sm={12} xs={12} onChange={handleCountryCodeChange} >
