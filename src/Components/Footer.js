@@ -52,9 +52,9 @@ export default function Footer(props) {
                 </Grid>
                 <Grid item xs={10} sm={10} md={4} lg={4} alignContent="flex-end"  >
                 <div className={props.viewWidth>=960?classes.socialIcons:classes.socialIconsSmall}>
-                    <a href="https://wwww.facebook.com"><img src={Facebook} style={{height:'50px',marginRight:'10px'}}></img></a>
-                    <a href="https://wwww.instagram.com"><img src={Instagram} style={{height:'50px',marginRight:'10px'}}></img></a>
-                    <a href="https://wwww.twitter.com"><img src={Twitter} style={{height:'50px'}}></img></a>
+                    <a href="https://www.facebook.com/astropowerbox/"><img src={Facebook} style={{height:'50px',marginRight:'10px'}}></img></a>
+                    <a href="https://www.instagram.com/astropowerbox/"><img src={Instagram} style={{height:'50px',marginRight:'10px'}}></img></a>
+                    <a href="https://www.twitter.com/astropowerbox/"><img src={Twitter} style={{height:'50px'}}></img></a>
                 </div>
                 </Grid>
                 <Grid item xs={10} sm={10} md={1} lg={1}  ></Grid>
