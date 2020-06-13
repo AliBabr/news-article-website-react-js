@@ -394,7 +394,7 @@ export default function CheckoutPage(props) {
                      Order Number:
                      </h6>
                      <div style={{width:"150px",marginLeft:"auto",marginRight:'auto'}}>
-                         <h2 style={{fontFamily:"poppins",color:"white",backgroundColor:'gray',width:'50px', fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                         <h2 style={{fontFamily:"poppins",color:"white",backgroundColor:'gray',width:'50px', fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px' , width: '200px' , marginLeft: '-25px'}}>
                         {orderId}
                         </h2>
                      </div>
@@ -403,7 +403,7 @@ export default function CheckoutPage(props) {
                      </h6>
                      <div style={{width:"300px",marginLeft:"auto",marginRight:'auto'}}>
                      <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
-                     Please Note:All boxes will be renewed on the 15th of every month
+                     Please Note:All boxes will be renewed on the 10th of every month
                      </h6>
                      </div>
                      

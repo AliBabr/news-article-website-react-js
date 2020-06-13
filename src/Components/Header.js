@@ -13,6 +13,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import AstroLogo from '../images/AstroBox.png';
 import { Typography } from "@material-ui/core";
+import { getToken,getUser, removeUserSession, setUserSession } from '../Components/Utils/Common';
+
 import { Grid , Hidden } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -107,6 +109,8 @@ export default function Header() {
     </Menu>
   );
 
+  const token = getToken()
+
   return (
     <div >
       <AppBar position="static" className="header" style={{backgroundColor:"white"}}>
@@ -114,7 +118,11 @@ export default function Header() {
           <Link to="/"><img style={{height:"74px",width:"116px"}} src={AstroLogo}></img></Link>
           <div className={classes.grow} />
           <Hidden smDown>
-            <Typography className="headerLinks"><Link to="/login">Login</Link></Typography>
+            { token != null ? 
+            <Typography className="headerLinks"><Link to="/login">My Account</Link></Typography>              
+            :
+            <Typography className="headerLinks"><Link to="/login">Login</Link></Typography>             
+            }
             <Typography className="headerLinks"><a href="/#section1">How It Works</a></Typography>
             <Typography className="headerLinks"><a href="/#planSection">Plans</a></Typography>
           </Hidden>

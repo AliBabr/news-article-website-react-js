@@ -229,7 +229,7 @@ export default function Subscription() {
                                     <input value={firstName} onChange={handleFirstNameChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Last Nmae</p>
+                                <p  className={classes.labels}>Last Name</p>
                                     <input value={lastName} onChange={handleLastNameChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
@@ -256,7 +256,7 @@ export default function Subscription() {
                                 <input value={city} onChange={handleCityChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Province</p>
+                                <p  className={classes.labels}>State</p>
                                     <input value={state} onChange={handleProvinceChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
@@ -265,7 +265,7 @@ export default function Subscription() {
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Streat Address</p>
+                                <p  className={classes.labels}>Street Address</p>
                                 <input value={address} onChange={handleAddressChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >

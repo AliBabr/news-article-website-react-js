@@ -200,7 +200,7 @@ class CheckoutForm extends React.Component {
                      Order Number:
                      </h6>
                      <div style={{width:"150px",marginLeft:"auto",marginRight:'auto'}}>
-                         <h2 style={{fontFamily:"poppins",color:"white",backgroundColor:'gray',width:'50px', fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
+                         <h2 style={{fontFamily:"poppins",color:"white",backgroundColor:'gray',width:'50px', fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px', width: '200px' , marginLeft: '-25px'}}>
                         {this.state.orderId}
                         </h2>
                      </div>
@@ -209,7 +209,7 @@ class CheckoutForm extends React.Component {
                      </h6>
                      <div style={{width:"300px",marginLeft:"auto",marginRight:'auto'}}>
                      <h6 style={{fontFamily:"poppins",fontWeight:"200",width:'auto', textAlign:'center', marginTop:'-15px'}}>
-                     Please Note:All boxes will be renewed on the 15th of every month
+                     Please Note:All boxes will be renewed on the 10th of every month
                      </h6>
                      </div>
                      
