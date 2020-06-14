@@ -34,6 +34,12 @@ export default class Main extends Component {
 
   render(){
     localStorage.setItem('myData', this.props.match.params.key);
+    var params = new URLSearchParams(this.props.location.search);
+
+    localStorage.setItem('gameChecked', params.get('gameChecked'));
+    localStorage.setItem('comicChecked', params.get('comicChecked'));
+    localStorage.setItem('animeChecked', params.get('animeChecked'));
+
     return(
         <div className="App">
         <div className="product">

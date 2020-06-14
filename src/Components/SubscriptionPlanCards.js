@@ -122,10 +122,10 @@ export default function PlanCards(props) {
   const [msg, setMsg] = useState("");
   const [open, setOpen] = React.useState(false);
   const [openSmackBar, setOpenSmackBar] = React.useState(false);
-  const [gameChecked, setGameCheck] = useState(true);
+  const [gameChecked, setGameCheck] = useState(props.gameChecked);
   const [checkCount, setCheckCount] = useState(3);
-  const [animeChecked, setAnimeCheck] = useState(true);
-  const [comicChecked, setComicCheck] = useState(true);
+  const [animeChecked, setAnimeCheck] = useState(props.animeChecked);
+  const [comicChecked, setComicCheck] = useState(props.comicChecked);
   const [product] = React.useState({
     name: "Your Plan",
     price: 30,
@@ -247,7 +247,7 @@ const handleClick = () => {
                       props.selected!=null && selected!=null?<Button style={{textTransform:'initial'}} className={classes.buttons} onClick={handleClick} variant="contained" color="primary">
                         Cancel
                     </Button>:
-                    <a href={`/account-checkout/${props.Keys}`}><Button style={{textTransform:'initial'}} className={"customButton"} variant="contained" color="primary">
+                    <a href={`/account-checkout/${props.Keys}?gameChecked=${gameChecked}&comicChecked=${comicChecked}&animeChecked=${animeChecked}`}><Button style={{textTransform:'initial'}} className={"customButton"} variant="contained" color="primary">
                     Select
                 </Button></a>
                 //     <StripeCheckout

@@ -118,6 +118,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Subscription() {
 
   const subs = getUser()
+
   const [password, setPassword] = useState(null);
 
   const [email, setEmail] = useState(subs.email);
@@ -129,7 +130,11 @@ export default function Subscription() {
   const [address, setAddress] = useState(subs.street_address);
   const [numberr, setNumberr] = useState(subs.plan_number);
   const [error, setError] = useState('');
-
+  
+  const [gameChecked, setgameChecked] = useState(subs.gameChecked);
+  const [comicChecked, setcomicChecked] = useState(subs.comicChecked);
+  const [animeChecked, setanimeChecked] = useState(subs.animeChecked);
+  
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
   };
@@ -315,22 +320,22 @@ export default function Subscription() {
            
                               {numberr == 0 ?
                               <div>
-                                <PlanCard selected="*" heading={Headings[0]} Keys={Keys[0]} price={Prices[0]} displayPrice={displayPrices[0]} />
+                                <PlanCard selected="*" heading={Headings[0]} Keys={Keys[0]} price={Prices[0]} displayPrice={displayPrices[0]} gameChecked={gameChecked} comicChecked={comicChecked} animeChecked={animeChecked} />
                               </div>
                               : 
-                              <PlanCard  heading={Headings[0]} Keys={0} price={Prices[0]} displayPrice={displayPrices[0]} />
+                              <PlanCard  heading={Headings[0]} Keys={0} price={Prices[0]} displayPrice={displayPrices[0]} gameChecked={true} comicChecked={true} animeChecked={true} />
                               }
                             </Grid>
                             
                             <Grid item lg={4} md={6} sm={12} xs={12} >
                               { numberr == 1 ?
                               <div>
-                                <PlanCard selected="*" heading={Headings[1]} Keys={Keys[1]} price={Prices[1]} displayPrice={displayPrices[1]} />
+                                <PlanCard selected="*" heading={Headings[1]} Keys={Keys[1]} price={Prices[1]} displayPrice={displayPrices[1] } gameChecked={gameChecked} comicChecked={comicChecked} animeChecked={animeChecked} />
                               </div>
                               : 
                               // <h1> HEELO000000 </h1>
 
-                              <PlanCard  heading={Headings[1]} Keys={1} price={Prices[1]} displayPrice={displayPrices[1]} />
+                              <PlanCard  heading={Headings[1]} Keys={1} price={Prices[1]} displayPrice={displayPrices[1]} gameChecked={true} comicChecked={true} animeChecked={true} />
                               }
                             </Grid>
 
@@ -339,11 +344,11 @@ export default function Subscription() {
                             <Grid item lg={4} md={6} sm={12} xs={12} >
                               {numberr == 2 ?   
                               <div>
-                                <PlanCard selected="*" heading={Headings[2]} Keys={Keys[2]} price={Prices[2]} displayPrice={displayPrices[2]} />
+                                <PlanCard selected="*" heading={Headings[2]} Keys={Keys[2]} price={Prices[2]} displayPrice={displayPrices[2]} gameChecked={gameChecked} comicChecked={comicChecked} animeChecked={animeChecked} />
                               </div>
                               : 
 
-                              <PlanCard  heading={Headings[2]} Keys={2} price={Prices[2]} displayPrice={displayPrices[2]} />
+                              <PlanCard  heading={Headings[2]} Keys={2} price={Prices[2]} displayPrice={displayPrices[2]} gameChecked={true} comicChecked={true} animeChecked={true} />
                               }
                             </Grid>
 

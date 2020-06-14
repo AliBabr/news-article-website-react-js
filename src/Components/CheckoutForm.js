@@ -50,6 +50,11 @@ class CheckoutForm extends React.Component {
   
   
   handleSubmit = async event => {
+
+    var gameChecked = localStorage.getItem('gameChecked')
+    var comicChecked = localStorage.getItem('comicChecked')
+    var animeChecked = localStorage.getItem('animeChecked')
+
     this.setState({loading: true})
     event.preventDefault();
     const key = localStorage.getItem('myData')
@@ -84,6 +89,11 @@ class CheckoutForm extends React.Component {
       formData.append("card_token", result.token.id)
 
       formData.append("apt", this.state.apt)
+
+      formData.append("gameChecked", gameChecked)
+      formData.append("comicChecked", comicChecked)
+      formData.append("animeChecked", animeChecked)
+
 
       axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/checkout' , data: formData }).then(response => { 
         this.setState({orderId: response.data.subscriptions[0].order_no})

@@ -69,6 +69,10 @@ class CheckoutForm extends React.Component {
     event.preventDefault();
     const key = localStorage.getItem('key')
 
+    var gameChecked = localStorage.getItem('AccountgameChecked')
+    var comicChecked = localStorage.getItem('AccountcomicChecked')
+    var animeChecked = localStorage.getItem('AccountanimeChecked')
+
     const { stripe, elements } = this.props;
     if (!stripe || !elements) {
       return;
@@ -98,6 +102,11 @@ class CheckoutForm extends React.Component {
       formData.append("card_token", result.token.id)
 
       formData.append("apt", this.state.apt)
+      
+      formData.append("gameChecked", gameChecked)
+      formData.append("comicChecked", comicChecked)
+      formData.append("animeChecked", animeChecked)
+
       const user = getUser()
 
       axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/upgrade_subscription', headers: {UUID: user.UUID, Authentication: user.Authentication} , data: formData }).then(response => {
