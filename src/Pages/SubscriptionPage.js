@@ -130,11 +130,27 @@ export default function Subscription() {
   const [address, setAddress] = useState(subs.street_address);
   const [numberr, setNumberr] = useState(subs.plan_number);
   const [error, setError] = useState('');
+
+  const [disabled, setDisabled] = useState(true);
+
+
+  const [holder, setHolder] = useState('Ali');
+  const [CardPostalCode, SetcardPostalCode] = useState('1234');
+  const [ExpiryMonth, SetexpiryMonth] = useState('04');
+  const [ExpiryYear, SetexpiryYear] = useState('20');
+  const [CardNumberr, SetcardNumberr] = useState('***********2222');
+
   
   const [gameChecked, setgameChecked] = useState(subs.gameChecked);
   const [comicChecked, setcomicChecked] = useState(subs.comicChecked);
   const [animeChecked, setanimeChecked] = useState(subs.animeChecked);
   
+
+
+  const handleEdit = (e) => {
+    setDisabled(false)
+  };
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
   };
@@ -167,6 +183,22 @@ export default function Subscription() {
     SetzipCode(e.target.value)
   };
   
+
+  const handleHolderChange = (e) => {
+    setHolder(e.target.value)
+  };
+
+  const handleMonthChange = (e) => {
+    SetexpiryMonth(e.target.value)
+  };
+  
+  const handleYearChange = (e) => {
+    SetexpiryYear(e.target.value)
+  };
+
+  const handlePostalCodeChange = (e) => {
+    SetcardPostalCode(e.target.value)
+  };
 
     function handleSubmit(e)
     {
@@ -231,11 +263,11 @@ export default function Subscription() {
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>First Name</p>
-                                    <input value={firstName} onChange={handleFirstNameChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                    <input disabled={disabled} value={firstName} onChange={handleFirstNameChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Last Name</p>
-                                    <input value={lastName} onChange={handleLastNameChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                    <input disabled={disabled} value={lastName} onChange={handleLastNameChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid> 
@@ -245,11 +277,11 @@ export default function Subscription() {
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Email</p>
-                                <input value={email} onChange={handleEmailChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                <input disabled={disabled} value={email} onChange={handleEmailChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Password</p>
-                                    <input type="password" onChange={handlePasswordChange} value={password} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                    <input disabled={disabled} type="password" onChange={handlePasswordChange} value={password} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid>
@@ -258,11 +290,11 @@ export default function Subscription() {
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>City</p>
-                                <input value={city} onChange={handleCityChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                <input disabled={disabled} value={city} onChange={handleCityChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>State</p>
-                                    <input value={state} onChange={handleProvinceChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                    <input disabled={disabled} value={state} onChange={handleProvinceChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid> 
@@ -271,40 +303,86 @@ export default function Subscription() {
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Street Address</p>
-                                <input value={address} onChange={handleAddressChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                <input disabled={disabled} value={address} onChange={handleAddressChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
                                 <p  className={classes.labels}>Postal Code</p>
-                                    <input value={zipCode} onChange={handleZipCodeChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                    <input disabled={disabled} value={zipCode} onChange={handleZipCodeChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid> 
 
-                                {/* Third Row */}
+                                
+                                <Grid item lg={12} md={12} sm={12} xs={12} >
+                                  <br/>
+                                </Grid> 
 
-                                {/* <Grid item lg={1} md={1} sm={12} xs={10} >
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
+                                </Grid>
+                                <Grid item lg={10} md={10} sm={12} xs={12} >
+                                    <h3>Billing Info</h3>
+                                </Grid>
+
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
+                                </Grid> 
+
+
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
+                                </Grid>
+                                <Grid item lg={2} md={2} sm={12} xs={12} >
+                                <p  className={classes.labels}>Card Last four</p>
+                                </Grid>
+                                <Grid item lg={8} md={8} sm={12} xs={12} >
+                                  <p  className={classes.labels}>{CardNumberr}</p>
+                                </Grid>
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
+                                </Grid> 
+
+
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Address</p>
-                                    <textarea value="Jhons Home" className={useWindowSize()[0]>=960?classes.textAreas:classes.textAreasSmall}/>
+                                <p  className={classes.labels}>Card Holder Name</p>
+                                <input disabled={disabled} value={holder} onChange={handleHolderChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
                                 <Grid item lg={5} md={5} sm={12} xs={12} >
-                                <p  className={classes.labels}>Billing Information</p>
-                                    <textarea value="Jhons Account" className={useWindowSize()[0]>=960?classes.textAreas:classes.textAreasSmall}/>
+                                <p  className={classes.labels}>Card Postal Code</p>
+                                    <input disabled={disabled} value={CardPostalCode} onChange={handlePostalCodeChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
                                 </Grid>
-                                <Grid item lg={1} md={1} sm={12} xs={10} >
-                                </Grid> */}
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
+                                </Grid> 
 
-                                {/* Fourth Row */}
+
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
+                                </Grid>
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
+                                <p  className={classes.labels}>Expiry Month</p>
+                                <input disabled={disabled} value={ExpiryMonth} onChange={handleMonthChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                </Grid>
+                                <Grid item lg={5} md={5} sm={12} xs={12} >
+                                <p  className={classes.labels}>Expiry Year</p>
+                                    <input disabled={disabled} value={ExpiryYear} onChange={handleYearChange} className={useWindowSize()[0]>=960?classes.textFields:classes.textFieldsSmall}/>
+                                </Grid>
+                                <Grid item lg={1} md={1} sm={12} xs={12} >
+                                </Grid> 
+
 
                                 <Grid item lg={3} md={3} sm={12} xs={10} >
                                 </Grid>
                                 <Grid item lg={6} md={6} sm={12} xs={12} >
-                                <input className={classes.buttonEdit} onClick={handleSubmit}  type="submit" value="Update"/>
+
+                                <input className={classes.buttonEdit} onClick={handleEdit}  type="button" value="Edit"/>
+
+                                {/* <input className={classes.buttonEdit} onClick={handleSubmit}  type="submit" value="Edit"/> */}
                                 </Grid>
                                 <Grid item lg={3} md={3} sm={12} xs={10} >
                                 </Grid>  
+                                
                         </Grid>
+
+
+
+                        
                     </Grid>
                     <Grid item lg={10} md={10} sm={10} xs={10} >
                     </Grid>
