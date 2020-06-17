@@ -144,7 +144,11 @@ export default function Subscription() {
   const [gameChecked, setgameChecked] = useState(subs.gameChecked);
   const [comicChecked, setcomicChecked] = useState(subs.comicChecked);
   const [animeChecked, setanimeChecked] = useState(subs.animeChecked);
-  
+
+  localStorage.setItem('game', subs.gameChecked);
+  localStorage.setItem('comic', subs.comicChecked);
+  localStorage.setItem('anime', subs.animeChecked);
+
 
 
   const handleEdit = (e) => {
@@ -202,6 +206,12 @@ export default function Subscription() {
 
     function handleSubmit(e)
     {
+        var game = localStorage.getItem('game');
+        var comic = localStorage.getItem('comic');
+        var anime = localStorage.getItem('anime');
+        
+        debugger
+
         var formData = new FormData();
 
         formData.append("email", email)
@@ -398,7 +408,7 @@ export default function Subscription() {
            
                               {numberr == 0 ?
                               <div>
-                                <PlanCard selected="*" heading={Headings[0]} Keys={Keys[0]} price={Prices[0]} displayPrice={displayPrices[0]} gameChecked={gameChecked} comicChecked={comicChecked} animeChecked={animeChecked} />
+                                <PlanCard selected="*" active={true} heading={Headings[0]} Keys={Keys[0]} price={Prices[0]} displayPrice={displayPrices[0]} gameChecked={gameChecked} comicChecked={comicChecked} animeChecked={animeChecked} />
                               </div>
                               : 
                               <PlanCard  heading={Headings[0]} Keys={0} price={Prices[0]} displayPrice={displayPrices[0]} gameChecked={true} comicChecked={true} animeChecked={true} />
@@ -408,10 +418,9 @@ export default function Subscription() {
                             <Grid item lg={4} md={6} sm={12} xs={12} >
                               { numberr == 1 ?
                               <div>
-                                <PlanCard selected="*" heading={Headings[1]} Keys={Keys[1]} price={Prices[1]} displayPrice={displayPrices[1] } gameChecked={gameChecked} comicChecked={comicChecked} animeChecked={animeChecked} />
+                                <PlanCard selected="*"  active={true} heading={Headings[1]} Keys={Keys[1]} price={Prices[1]} displayPrice={displayPrices[1] } gameChecked={gameChecked} comicChecked={comicChecked} animeChecked={animeChecked} />
                               </div>
                               : 
-                              // <h1> HEELO000000 </h1>
 
                               <PlanCard  heading={Headings[1]} Keys={1} price={Prices[1]} displayPrice={displayPrices[1]} gameChecked={true} comicChecked={true} animeChecked={true} />
                               }
@@ -422,7 +431,7 @@ export default function Subscription() {
                             <Grid item lg={4} md={6} sm={12} xs={12} >
                               {numberr == 2 ?   
                               <div>
-                                <PlanCard selected="*" heading={Headings[2]} Keys={Keys[2]} price={Prices[2]} displayPrice={displayPrices[2]} gameChecked={gameChecked} comicChecked={comicChecked} animeChecked={animeChecked} />
+                                <PlanCard selected="*" active={true} heading={Headings[2]} Keys={Keys[2]} price={Prices[2]} displayPrice={displayPrices[2]} gameChecked={gameChecked} comicChecked={comicChecked} animeChecked={animeChecked} />
                               </div>
                               : 
 
@@ -438,7 +447,9 @@ export default function Subscription() {
                                 <Grid item lg={3} md={3} sm={10} xs={10} >
                                 </Grid>
                                 <Grid item lg={6} md={6} sm={10} xs={11} >
-                                <input className={classes.buttons} type="submit" value="Done"/>
+                                <input className={classes.buttonEdit} onClick={handleSubmit}  type="submit" value="Done"/>
+
+                                {/* <input className={classes.buttons} type="submit" value="Done"/> */}
                                 </Grid>
                                 <Grid item lg={3} md={3} sm={10} xs={10} >
                                 </Grid> 

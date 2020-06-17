@@ -126,6 +126,10 @@ export default function PlanCards(props) {
   const [checkCount, setCheckCount] = useState(3);
   const [animeChecked, setAnimeCheck] = useState(props.animeChecked);
   const [comicChecked, setComicCheck] = useState(props.comicChecked);
+
+  const [active, setActive] = useState(props.active);
+
+
   const [product] = React.useState({
     name: "Your Plan",
     price: 30,
@@ -171,6 +175,11 @@ const handleClick = () => {
   };
   function handleGameClick()
       {
+        if(active)
+        {
+          localStorage.setItem('game', !gameChecked);
+        }
+
         if(gameChecked==false)
         {
           setGameCheck(!gameChecked);
@@ -184,6 +193,12 @@ const handleClick = () => {
       }
       function handleComicClick()
       {
+        if(active)
+        {
+          localStorage.setItem('comic', !comicChecked);
+        }
+
+
         if(comicChecked==false)
         {
           setComicCheck(!comicChecked);
@@ -197,6 +212,12 @@ const handleClick = () => {
       }
       function handleAnimeClick()
       {
+        if(active)
+        {
+          localStorage.setItem('anime', !animeChecked);
+        }
+
+
         if(animeChecked==false)
         {
           setAnimeCheck(!animeChecked);

@@ -6,6 +6,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios'
 import history from './history';
 import Tick from '../images/tick.png';
+import { getToken,getUser, removeUserSession, setUserSession } from '../Components/Utils/Common';
+
 
 
 import { ElementsConsumer, CardElement } from "@stripe/react-stripe-js";
@@ -97,6 +99,8 @@ class CheckoutForm extends React.Component {
 
       axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/checkout' , data: formData }).then(response => { 
         this.setState({orderId: response.data.subscriptions[0].order_no})
+        setUserSession(response.data.user_deatails[0].Authentication, response.data.user_deatails[0]);
+
         this.setState({email: ''})
         this.setState({password: ''})
         this.setState({city: ''})
