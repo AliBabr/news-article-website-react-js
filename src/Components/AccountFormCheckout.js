@@ -101,6 +101,8 @@ class CheckoutForm extends React.Component {
       formData.append("plan_id", key)
       formData.append("card_token", result.token.id)
 
+      formData.append("card_id", result.token.card.id)
+
       formData.append("apt", this.state.apt)
       
       formData.append("gameChecked", gameChecked)

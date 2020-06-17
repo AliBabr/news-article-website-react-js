@@ -271,14 +271,6 @@ const handleClick = () => {
                     <a href={`/account-checkout/${props.Keys}?gameChecked=${gameChecked}&comicChecked=${comicChecked}&animeChecked=${animeChecked}`}><Button style={{textTransform:'initial'}} className={"customButton"} variant="contained" color="primary">
                     Select
                 </Button></a>
-                //     <StripeCheckout
-                //     className={"checkoutButtonSub"}
-                //     stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
-                //     amount={product.price * 100}
-                //     name="Subscription"
-                //     billingAddress
-                //     shippingAddress
-                // />
                     }
                     
                     

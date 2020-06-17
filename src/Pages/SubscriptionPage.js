@@ -133,12 +133,15 @@ export default function Subscription() {
 
   const [disabled, setDisabled] = useState(true);
 
+  const [loading, setloading] = useState(false);
 
-  const [holder, setHolder] = useState('Ali');
-  const [CardPostalCode, SetcardPostalCode] = useState('1234');
-  const [ExpiryMonth, SetexpiryMonth] = useState('04');
-  const [ExpiryYear, SetexpiryYear] = useState('20');
-  const [CardNumberr, SetcardNumberr] = useState('***********2222');
+
+
+  const [holder, setHolder] = useState(subs.holder);
+  const [CardPostalCode, SetcardPostalCode] = useState(subs.CardPostalCode);
+  const [ExpiryMonth, SetexpiryMonth] = useState(subs.ExpiryMonth);
+  const [ExpiryYear, SetexpiryYear] = useState(subs.ExpiryYear);
+  const [CardNumberr, SetcardNumberr] = useState('************' + subs.CardNumberr);
 
   
   const [gameChecked, setgameChecked] = useState(subs.gameChecked);
@@ -206,12 +209,13 @@ export default function Subscription() {
 
     function handleSubmit(e)
     {
+
+        setloading({loading: true})
+
         var game = localStorage.getItem('game');
         var comic = localStorage.getItem('comic');
         var anime = localStorage.getItem('anime');
         
-        debugger
-
         var formData = new FormData();
 
         formData.append("email", email)
@@ -228,15 +232,29 @@ export default function Subscription() {
   
         formData.append("state", state )
         formData.append("zip_code", zipCode)
+
+        formData.append("gameChecked", game)
+        formData.append("comicChecked", comic)
+        formData.append("animeChecked", anime)
+
+
+        formData.append("holder", holder)
+        formData.append("CardPostalCode", CardPostalCode)
+        formData.append("ExpiryMonth", ExpiryMonth)
+        formData.append("ExpiryYear", ExpiryYear)
+
   
         const user = getUser()
 
         axios({method: 'post', url: 'https://news-article-system.herokuapp.com/api/v1/web/update_subscription', headers: {UUID: user.UUID, Authentication: user.Authentication} , data: formData }).then(response => {
-
           setUserSession(response.data.user_deatails[0].Authentication, response.data.user_deatails[0]);
+          setloading({loading: false})      
+          window.location.assign('/account')
+
         }).catch(error => {
           this.setState({saved: ''})
-          this.setState({loading: false})      
+          setloading({loading: false})      
+     
           if (error.response.status === 400) this.setState({errors: error.response.data});
           else this.setState({error: "Something went wrong. Please try again later." });
         });
@@ -447,7 +465,8 @@ export default function Subscription() {
                                 <Grid item lg={3} md={3} sm={10} xs={10} >
                                 </Grid>
                                 <Grid item lg={6} md={6} sm={10} xs={11} >
-                                <input className={classes.buttonEdit} onClick={handleSubmit}  type="submit" value="Done"/>
+
+                                <input className={classes.buttonEdit} onClick={handleSubmit}  type="submit"  value={loading ? 'Loading...' : 'Done'} />
 
                                 {/* <input className={classes.buttons} type="submit" value="Done"/> */}
                                 </Grid>
