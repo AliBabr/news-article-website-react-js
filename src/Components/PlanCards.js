@@ -77,10 +77,10 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function PlanCards(props) {
-  const [gameChecked, setGameCheck] = useState(true);
+  const [gameChecked, setGameCheck] = useState(false);
   const [checkCount, setCheckCount] = useState(3);
-  const [animeChecked, setAnimeCheck] = useState(true);
-  const [comicChecked, setComicCheck] = useState(true);
+  const [animeChecked, setAnimeCheck] = useState(false);
+  const [comicChecked, setComicCheck] = useState(false);
     var [product] = React.useState({
         name: "Your Plan",
         price: 30,

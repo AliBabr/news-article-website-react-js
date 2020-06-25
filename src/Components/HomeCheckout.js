@@ -40,6 +40,9 @@ export default class Main extends Component {
     localStorage.setItem('comicChecked', params.get('comicChecked'));
     localStorage.setItem('animeChecked', params.get('animeChecked'));
 
+    if ( params.get('gameChecked') == 'false' && params.get('comicChecked')== 'false' && params.get('animeChecked')== 'false' ) {
+      window.location.assign('/')
+    }  
     return(
         <div className="App">
         <div className="product">

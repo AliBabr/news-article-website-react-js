@@ -14,6 +14,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Caution from "../images/warning.jpg";
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 import { getToken,getUser, removeUserSession, setUserSession } from '../Components/Utils/Common';
 
 // import {CardCVCElement, CardExpiryElement, CardNumberElement, PostalCodeElement, StripeProvider, Elements} from '@stripe/react-stripe-js';
@@ -345,7 +347,12 @@ function CardSection(props) {
       const classes = useStyles();
       const key = localStorage.getItem('key')
 
+      var gameChecked = localStorage.getItem('AccountgameChecked')
+      var comicChecked = localStorage.getItem('AccountcomicChecked')
+      var animeChecked = localStorage.getItem('AccountanimeChecked')
+
   return (
+    
 
     <div  className="homepageSubscription" style={{textAlign:"center"}}>
             {/* <Header></Header> */}
@@ -353,8 +360,12 @@ function CardSection(props) {
                 <Grid item xs={12} sm={12} md={1} lg={1} xl={1}>
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                <img src={AstroBox}  className={useWindowSize()[0]>=960?classes.coverImage:classes.coverImageSmall}></img>
+
+                <Link to="/"><img src={AstroBox}  className={useWindowSize()[0]>=960?classes.coverImage:classes.coverImageSmall}></img></Link>
                 <h2>Order Summary</h2>
+                <p> Gaming: {gameChecked == 'true' ? ' YES': ' NO'} </p>
+                <p>Comics: {comicChecked == 'true' ? ' YES' : ' NO'} </p>
+                <p>Anime: {animeChecked == 'true'?  ' YES' : ' NO'} </p>
                 <Grid container>
                     <Grid item md={6} md={6} sm={6} xs={6}>
                         <h3>{Headings[parseInt(key)]}</h3>

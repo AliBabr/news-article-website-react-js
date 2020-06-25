@@ -429,7 +429,7 @@ export default function Subscription() {
                                 <PlanCard selected="*" active={true} heading={Headings[0]} Keys={Keys[0]} price={Prices[0]} displayPrice={displayPrices[0]} gameChecked={gameChecked} comicChecked={comicChecked} animeChecked={animeChecked} />
                               </div>
                               : 
-                              <PlanCard  heading={Headings[0]} Keys={0} price={Prices[0]} displayPrice={displayPrices[0]} gameChecked={true} comicChecked={true} animeChecked={true} />
+                              <PlanCard  heading={Headings[0]} Keys={0} price={Prices[0]} displayPrice={displayPrices[0]} gameChecked={false} comicChecked={false} animeChecked={false} />
                               }
                             </Grid>
                             
@@ -440,7 +440,7 @@ export default function Subscription() {
                               </div>
                               : 
 
-                              <PlanCard  heading={Headings[1]} Keys={1} price={Prices[1]} displayPrice={displayPrices[1]} gameChecked={true} comicChecked={true} animeChecked={true} />
+                              <PlanCard  heading={Headings[1]} Keys={1} price={Prices[1]} displayPrice={displayPrices[1]} gameChecked={false} comicChecked={false} animeChecked={false} />
                               }
                             </Grid>
 
@@ -453,7 +453,7 @@ export default function Subscription() {
                               </div>
                               : 
 
-                              <PlanCard  heading={Headings[2]} Keys={2} price={Prices[2]} displayPrice={displayPrices[2]} gameChecked={true} comicChecked={true} animeChecked={true} />
+                              <PlanCard  heading={Headings[2]} Keys={2} price={Prices[2]} displayPrice={displayPrices[2]} gameChecked={false} comicChecked={false} animeChecked={false} />
                               }
                             </Grid>
 
